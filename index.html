@@ -7,32 +7,74 @@
     <meta name="description" content="नगरसेवक उमेदवार - वार्डाचा विकास, नागरिकांची सेवा">
     <meta name="keywords" content="नगरसेवक, भारतीय जनता पार्टी, BJP, वार्ड, विकास, नागरिक सेवा">
     <meta name="author" content="भारतीय जनता पार्टी">
+    <!-- Open Graph -->
+    <meta property="og:title" content="नगरसेवक - मी तुमच्या विकासाचा प्रतिनिधी">
+    <meta property="og:description" content="वार्डाचा विकास, नागरिकांची सेवा — विश्वास, नेतृत्व आणि प्रगती">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="mr_IN">
+    <meta property="og:image" content="/og-image.jpg">
+    <meta property="og:url" content="/">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="नगरसेवक - मी तुमच्या विकासाचा प्रतिनिधी">
+    <meta name="twitter:description" content="वार्डाचा विकास, पारदर्शकता आणि सेवा">
+    <meta name="twitter:image" content="/og-image.jpg">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23FF6600'/%3E%3Ctext x='50%' y='56%' dominant-baseline='middle' text-anchor='middle' font-size='34' fill='white'%3E🇮🇳%3C/text%3E%3C/svg%3E" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-primary: #FF9900;
+            /* Authentic BJP Brand Colors */
+            --color-primary: #FF6600;
+            --color-saffron: #FF6600;
+            --color-saffron-light: #FF9933;
+            --color-saffron-dark: #FF4400;
             --color-secondary: #003D7A;
-            --color-accent: #2196F3;
+            --color-blue: #003D7A;
+            --color-blue-light: #005BAC;
+            --color-blue-dark: #002855;
+            --color-white: #FFFFFF;
             --color-success: #138808;
-            --color-text: #1a1a1a;
-            --color-bg: #f5f5f5;
+            --color-green: #138808;
+            --color-green-light: #1AAF10;
+            --color-text: #2c3e50;
+            --color-text-light: #555555;
+            --color-bg: #f8f9fa;
+            --color-bg-alt: #ffffff;
             --color-card: #ffffff;
-            --color-border: #e0e0e0;
+            --color-border: #dee2e6;
             --color-overlay: rgba(0, 61, 122, 0.95);
-            --font-size-sm: 12px;
-            --font-size-base: 14px;
-            --font-size-lg: 16px;
-            --font-size-xl: 18px;
-            --font-size-2xl: 24px;
-            --font-size-3xl: 32px;
-            --font-size-4xl: 48px;
-            --transition-speed: 0.3s;
+            
+            /* Typography */
+            --font-size-sm: 13px;
+            --font-size-base: 15px;
+            --font-size-lg: 17px;
+            --font-size-xl: 20px;
+            --font-size-2xl: 28px;
+            --font-size-3xl: 36px;
+            --font-size-4xl: 52px;
+            --font-size-5xl: 64px;
+            
+            /* Professional Shadows */
+            --shadow-xs: 0 1px 3px rgba(0,0,0,0.06);
             --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
-            --shadow-lg: 0 8px 20px rgba(0,0,0,0.15);
-            --shadow-xl: 0 12px 40px rgba(0,0,0,0.2);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+            --shadow-xl: 0 12px 40px rgba(0,0,0,0.15);
+            --shadow-2xl: 0 20px 60px rgba(0,0,0,0.2);
+            
+            /* BJP Gradient Colors */
+            --gradient-saffron: linear-gradient(135deg, #FF6600 0%, #FF9933 100%);
+            --gradient-blue: linear-gradient(135deg, #003D7A 0%, #005BAC 100%);
+            --gradient-patriotic: linear-gradient(180deg, #FF6600 0%, #FFFFFF 50%, #138808 100%);
+            --gradient-hero: linear-gradient(135deg, #FF6600 0%, #FF9933 50%, #003D7A 100%);
+            --gradient-card: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            
+            /* Transitions */
+            --transition-speed: 0.35s;
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * {
@@ -46,11 +88,13 @@
         }
 
         body {
-            font-family: 'Noto Sans Devanagari', 'Inter', 'Arial', 'Segoe UI', sans-serif;
-            background-color: var(--color-bg);
+            font-family: 'Noto Sans Devanagari', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
             color: var(--color-text);
-            line-height: 1.7;
+            line-height: 1.8;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Animations */
@@ -142,27 +186,30 @@
             top: 0;
             left: 0;
             width: 0%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-success));
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-saffron) 0%, var(--color-saffron-light) 50%, var(--color-green) 100%);
             z-index: 9999;
             transition: width 0.1s ease-out;
+            box-shadow: 0 2px 10px rgba(255, 102, 0, 0.5);
         }
 
-        /* Navigation */
+        /* Navigation - Professional BJP Branding */
         nav {
-            background: linear-gradient(135deg, var(--color-secondary) 0%, #1a5ba8 100%);
-            padding: 15px 0;
+            background: var(--gradient-blue);
+            padding: 18px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: var(--shadow-md);
-            backdrop-filter: blur(10px);
-            transition: all var(--transition-speed) ease;
+            box-shadow: 0 4px 20px rgba(0, 61, 122, 0.25);
+            backdrop-filter: blur(15px);
+            transition: all var(--transition-speed) var(--transition-smooth);
+            border-bottom: 3px solid var(--color-saffron);
         }
 
         nav.scrolled {
-            padding: 10px 0;
-            box-shadow: var(--shadow-lg);
+            padding: 12px 0;
+            box-shadow: 0 6px 30px rgba(0, 61, 122, 0.3);
+            border-bottom: 2px solid var(--color-saffron);
         }
 
         nav .container {
@@ -175,13 +222,22 @@
         }
 
         nav .logo {
-            color: #fff;
+            color: var(--color-white);
             font-size: var(--font-size-2xl);
-            font-weight: 800;
+            font-weight: 900;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             animation: slideInLeft 0.6s ease-out;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
+        }
+
+        nav .logo img {
+            height: 38px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));
         }
 
         nav .logo .flag {
@@ -212,9 +268,10 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
-            background: var(--color-primary);
-            transition: width var(--transition-speed);
+            height: 3px;
+            background: var(--color-saffron);
+            transition: width var(--transition-speed) var(--transition-smooth);
+            box-shadow: 0 2px 8px rgba(255, 102, 0, 0.5);
         }
 
         nav a:hover::after {
@@ -222,27 +279,30 @@
         }
 
         nav a:hover {
-            color: var(--color-primary);
+            color: var(--color-saffron);
             transform: translateY(-2px);
+            text-shadow: 0 4px 12px rgba(255, 102, 0, 0.4);
         }
 
         .lang-toggle {
-            background: var(--color-primary);
-            color: #fff;
+            background: var(--gradient-saffron);
+            color: var(--color-white);
             border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
+            padding: 11px 24px;
+            border-radius: 30px;
             cursor: pointer;
-            font-weight: 700;
+            font-weight: 800;
             font-size: var(--font-size-base);
-            transition: all var(--transition-speed);
-            box-shadow: 0 4px 10px rgba(255, 153, 0, 0.3);
+            transition: all var(--transition-speed) var(--transition-smooth);
+            box-shadow: 0 4px 15px rgba(255, 102, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .lang-toggle:hover {
-            background: #ff8800;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(255, 153, 0, 0.4);
+            background: linear-gradient(135deg, var(--color-saffron-dark) 0%, var(--color-saffron) 100%);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 102, 0, 0.5);
         }
 
         .lang-toggle:active {
@@ -260,14 +320,15 @@
             padding: 5px;
         }
 
-        /* Hero Section */
+        /* Hero Section - Premium Political Campaign Design with Animated Background */
         .hero {
-            background: linear-gradient(135deg, var(--color-secondary) 0%, #1a5ba8 50%, var(--color-primary) 100%);
-            color: #fff;
-            padding: 100px 20px;
+            background: var(--gradient-hero);
+            color: var(--color-white);
+            padding: 120px 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            box-shadow: inset 0 -10px 50px rgba(0,0,0,0.1);
         }
 
         .hero::before {
@@ -277,11 +338,37 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,96C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background: 
+                repeating-linear-gradient(
+                    45deg,
+                    transparent,
+                    transparent 35px,
+                    rgba(255,255,255,0.03) 35px,
+                    rgba(255,255,255,0.03) 70px
+                );
+            animation: scrollBackground 20s linear infinite;
+        }
+
+        @keyframes scrollBackground {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100px 100px;
+            }
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.08" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,96C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
             background-size: cover;
             background-position: bottom;
-            opacity: 0.3;
-            animation: float 6s ease-in-out infinite;
+            animation: float 8s ease-in-out infinite;
         }
 
         .hero .container {
@@ -291,11 +378,12 @@
 
         .hero h1 {
             font-size: var(--font-size-4xl);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             line-height: 1.2;
-            font-weight: 800;
+            font-weight: 900;
             animation: fadeIn 0.8s ease-out;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 3px 3px 12px rgba(0,0,0,0.3);
+            letter-spacing: 0.5px;
         }
 
         .hero .tagline {
@@ -355,15 +443,17 @@
         }
 
         .btn-primary {
-            background: var(--color-primary);
-            color: #fff;
-            box-shadow: 0 6px 20px rgba(255,153,0,0.4);
+            background: var(--gradient-saffron);
+            color: var(--color-white);
+            box-shadow: 0 6px 25px rgba(255, 102, 0, 0.45);
+            border: 2px solid transparent;
         }
 
         .btn-primary:hover {
-            background: #ff8800;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255,153,0,0.5);
+            background: linear-gradient(135deg, var(--color-saffron-dark) 0%, var(--color-saffron) 100%);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(255, 102, 0, 0.55);
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
 
         .btn-primary:active {
@@ -371,17 +461,18 @@
         }
 
         .btn-secondary {
-            background: #fff;
-            color: var(--color-secondary);
-            border: 2px solid #fff;
-            box-shadow: 0 6px 20px rgba(255,255,255,0.3);
+            background: var(--color-white);
+            color: var(--color-blue);
+            border: 3px solid var(--color-white);
+            box-shadow: 0 6px 25px rgba(255,255,255,0.35);
         }
 
         .btn-secondary:hover {
             background: transparent;
-            color: #fff;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(255,255,255,0.4);
+            color: var(--color-white);
+            border: 3px solid var(--color-white);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(255,255,255,0.45);
         }
 
         .btn-secondary:active {
@@ -401,10 +492,179 @@
         }
 
         section h2 {
-            font-size: var(--font-size-2xl);
-            margin-bottom: 40px;
+            font-size: var(--font-size-3xl);
+            margin-bottom: 50px;
             text-align: center;
-            color: var(--color-secondary);
+            color: var(--color-blue);
+            font-weight: 800;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-saffron);
+            border-radius: 2px;
+        }
+
+        /* Professional Badges */
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: var(--font-size-sm);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin: 5px;
+        }
+
+        .badge-saffron {
+            background: var(--gradient-saffron);
+            color: var(--color-white);
+            box-shadow: 0 3px 10px rgba(255, 102, 0, 0.3);
+        }
+
+        .badge-blue {
+            background: var(--gradient-blue);
+            color: var(--color-white);
+            box-shadow: 0 3px 10px rgba(0, 61, 122, 0.3);
+        }
+
+        .badge-outline {
+            background: transparent;
+            border: 2px solid var(--color-saffron);
+            color: var(--color-saffron);
+        }
+
+        /* Progress Bars for Ward Development */
+        .progress-container {
+            margin: 30px 0;
+        }
+
+        .progress-item {
+            margin-bottom: 25px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: rgba(0, 61, 122, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-saffron);
+            border-radius: 10px;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            box-shadow: 0 2px 8px rgba(255, 102, 0, 0.4);
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,0.4),
+                transparent
+            );
+            animation: shimmer 2s infinite;
+        }
+
+        /* Timeline for Achievements/Events */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--gradient-saffron);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 40px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 18px;
+            top: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--gradient-saffron);
+            border: 4px solid var(--color-white);
+            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.5);
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--color-saffron);
+            transition: all var(--transition-speed) var(--transition-smooth);
+        }
+
+        .timeline-content:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .timeline-date {
+            color: var(--color-saffron);
+            font-weight: 800;
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            color: var(--color-blue);
+            font-weight: 800;
+            font-size: var(--font-size-xl);
+            margin-bottom: 10px;
+        }
+
+        .timeline-description {
+            color: var(--color-text-light);
+            line-height: 1.8;
         }
 
         /* About Section */
@@ -421,16 +681,21 @@
 
         .about-image {
             width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-            border-radius: 10px;
+            height: 340px;
+            background: linear-gradient(135deg, var(--color-primary), #ff8c42);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            font-size: 14px;
-            text-align: center;
-            padding: 20px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .about-text h3 {
@@ -473,12 +738,16 @@
         }
 
         .vision-card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: var(--shadow-sm);
-            transition: all var(--transition-speed);
-            border-top: 5px solid var(--color-primary);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 35px;
+            border-radius: 18px;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-speed) var(--transition-smooth);
+            border-top: 6px solid var(--color-saffron);
+            border-left: 2px solid rgba(255, 102, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -490,8 +759,8 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,153,0,0.1), transparent);
-            transition: left 0.5s;
+            background: linear-gradient(90deg, transparent, rgba(255, 102, 0, 0.08), transparent);
+            transition: left 0.6s var(--transition-smooth);
         }
 
         .vision-card:hover::before {
@@ -499,16 +768,18 @@
         }
 
         .vision-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: var(--shadow-xl);
-            border-top-color: var(--color-success);
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 20px 60px rgba(255, 102, 0, 0.2);
+            border-top-color: var(--color-saffron-dark);
+            border-left-color: var(--color-saffron);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         .vision-card h3 {
-            color: var(--color-secondary);
-            margin-bottom: 15px;
+            color: var(--color-blue);
+            margin-bottom: 18px;
             font-size: var(--font-size-xl);
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .vision-card p {
@@ -529,11 +800,20 @@
         }
 
         .issue-item {
-            background: linear-gradient(135deg, var(--color-primary), #ff8800);
-            color: #fff;
-            padding: 20px;
-            border-radius: 8px;
+            background: var(--gradient-saffron);
+            color: var(--color-white);
+            padding: 28px 20px;
+            border-radius: 15px;
             text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-speed) var(--transition-smooth);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .issue-item:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--color-white);
         }
 
         .issue-item h4 {
@@ -543,10 +823,11 @@
 
         /* Achievements Section */
         .achievements {
-            background: linear-gradient(135deg, var(--color-secondary) 0%, #1a5ba8 100%);
-            color: #fff;
+            background: var(--gradient-blue);
+            color: var(--color-white);
             position: relative;
             overflow: hidden;
+            box-shadow: inset 0 0 100px rgba(0,0,0,0.15);
         }
 
         .achievements::before {
@@ -554,9 +835,9 @@
             position: absolute;
             top: -50%;
             right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255,153,0,0.2) 0%, transparent 70%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 102, 0, 0.25) 0%, transparent 70%);
             border-radius: 50%;
             animation: float 8s ease-in-out infinite;
         }
@@ -566,9 +847,9 @@
             position: absolute;
             bottom: -50%;
             left: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(33,150,243,0.2) 0%, transparent 70%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(19, 136, 8, 0.2) 0%, transparent 70%);
             border-radius: 50%;
             animation: float 8s ease-in-out infinite reverse;
         }
@@ -589,29 +870,52 @@
         }
 
         .achievement-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            padding: 40px 30px;
-            border-radius: 15px;
-            box-shadow: var(--shadow-md);
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 45px 35px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg), inset 0 0 0 1px rgba(255,255,255,0.1);
             text-align: center;
-            border: 2px solid rgba(255,255,255,0.2);
-            transition: all var(--transition-speed);
+            border: 3px solid rgba(255,255,255,0.3);
+            transition: all var(--transition-speed) var(--transition-smooth);
         }
 
         .achievement-card:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: var(--shadow-xl);
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: var(--shadow-2xl);
+            border-color: rgba(255, 102, 0, 0.6);
         }
 
         .achievement-number {
-            font-size: var(--font-size-4xl);
-            color: var(--color-primary);
+            font-size: var(--font-size-5xl);
+            color: var(--color-saffron);
             font-weight: 900;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 18px;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.4);
             animation: scaleIn 0.6s ease-out;
+            line-height: 1;
+        }
+
+        .counter {
+            display: inline-block;
+        }
+
+        /* Animated Counter */
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .counter.counting {
+            animation: countUp 0.5s ease-out;
         }
 
         .achievement-label {
@@ -632,23 +936,32 @@
         }
 
         .event-item {
-            background: var(--color-bg);
-            padding: 20px;
-            border-left: 4px solid var(--color-primary);
-            border-radius: 5px;
+            background: var(--gradient-card);
+            padding: 25px;
+            border-left: 6px solid var(--color-saffron);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-speed) var(--transition-smooth);
+        }
+
+        .event-item:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-lg);
+            border-left-width: 8px;
         }
 
         .event-date {
-            color: var(--color-primary);
-            font-weight: bold;
-            margin-bottom: 8px;
+            color: var(--color-saffron);
+            font-weight: 800;
+            margin-bottom: 10px;
+            font-size: var(--font-size-base);
         }
 
         .event-title {
-            color: var(--color-secondary);
-            font-weight: bold;
-            margin-bottom: 8px;
-            font-size: var(--font-size-lg);
+            color: var(--color-blue);
+            font-weight: 800;
+            margin-bottom: 10px;
+            font-size: var(--font-size-xl);
         }
 
         .event-location {
@@ -679,15 +992,22 @@
         }
 
         .contact-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--color-primary);
-            color: #fff;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-saffron);
+            color: var(--color-white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-speed) var(--transition-smooth);
+        }
+
+        .contact-item:hover .contact-icon {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: var(--shadow-lg);
         }
 
         .form-group {
@@ -696,19 +1016,89 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--color-secondary);
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: var(--color-blue);
+            font-size: var(--font-size-base);
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 10px;
-            border: 1px solid var(--color-border);
-            border-radius: 5px;
+            padding: 14px 16px;
+            border: 2px solid var(--color-border);
+            border-radius: 10px;
             font-family: inherit;
             font-size: var(--font-size-base);
+            transition: all var(--transition-speed) var(--transition-smooth);
+            background: var(--color-white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-saffron);
+            box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.15);
+        }
+
+        /* Form Validation */
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #dc3545;
+            animation: shake 0.5s;
+        }
+
+        .form-group.success input,
+        .form-group.success textarea {
+            border-color: var(--color-green);
+        }
+
+        .form-error {
+            color: #dc3545;
+            font-size: var(--font-size-sm);
+            margin-top: 5px;
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+
+        .form-group.error .form-error {
+            display: block;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        /* Loading Spinner for Form */
+        .btn-loading {
+            position: relative;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .btn-loading::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            top: 50%;
+            right: 15px;
+            margin-top: -8px;
+            border: 2px solid transparent;
+            border-top-color: var(--color-white);
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+
+        /* Icon Styles */
+        .icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            vertical-align: middle;
         }
 
         .form-group textarea {
@@ -728,21 +1118,22 @@
         }
 
         .gallery-item {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-            height: 250px;
-            border-radius: 15px;
+            background: var(--gradient-hero);
+            height: 280px;
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
+            color: var(--color-white);
             text-align: center;
-            font-weight: 700;
-            font-size: var(--font-size-lg);
+            font-weight: 800;
+            font-size: var(--font-size-xl);
             cursor: pointer;
-            transition: all var(--transition-speed);
+            transition: all var(--transition-speed) var(--transition-smooth);
             position: relative;
             overflow: hidden;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
+            border: 3px solid rgba(255, 255, 255, 0.3);
         }
 
         .gallery-item::before {
@@ -762,8 +1153,9 @@
         }
 
         .gallery-item:hover {
-            transform: scale(1.08) rotate(2deg);
-            box-shadow: var(--shadow-xl);
+            transform: scale(1.1) rotate(3deg);
+            box-shadow: var(--shadow-2xl);
+            border-color: var(--color-white);
         }
 
         .gallery-item span {
@@ -774,12 +1166,13 @@
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, var(--color-secondary) 0%, #1a5ba8 100%);
-            color: #fff;
-            padding: 50px 20px 30px;
+            background: var(--gradient-blue);
+            color: var(--color-white);
+            padding: 60px 20px 35px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
         }
 
         footer::before {
@@ -788,10 +1181,10 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-primary), var(--color-success), var(--color-primary));
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-saffron) 0%, var(--color-white) 50%, var(--color-green) 100%);
             background-size: 200% 100%;
-            animation: shimmer 3s linear infinite;
+            animation: shimmer 4s linear infinite;
         }
 
         footer .social-links {
@@ -805,20 +1198,21 @@
         footer .social-links a {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: rgba(255,255,255,0.1);
-            padding: 12px 20px;
-            border-radius: 30px;
-            transition: all var(--transition-speed);
-            font-weight: 600;
-            border: 2px solid rgba(255,255,255,0.2);
+            gap: 10px;
+            background: rgba(255,255,255,0.15);
+            padding: 14px 24px;
+            border-radius: 35px;
+            transition: all var(--transition-speed) var(--transition-smooth);
+            font-weight: 700;
+            border: 2px solid rgba(255,255,255,0.3);
+            font-size: var(--font-size-base);
         }
 
         footer .social-links a:hover {
-            background: var(--color-primary);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255,153,0,0.4);
-            border-color: var(--color-primary);
+            background: var(--gradient-saffron);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.5);
+            border-color: var(--color-saffron);
         }
 
         footer a {
@@ -832,9 +1226,10 @@
         }
 
         .footer-logo {
-            font-size: 48px;
-            margin-bottom: 20px;
+            font-size: 56px;
+            margin-bottom: 25px;
             animation: pulse 3s infinite;
+            filter: drop-shadow(0 4px 12px rgba(255, 102, 0, 0.4));
         }
 
         /* Hidden Section */
@@ -873,29 +1268,31 @@
             position: fixed;
             bottom: 100px;
             right: 30px;
-            background: var(--color-primary);
-            color: #fff;
-            width: 50px;
-            height: 50px;
+            background: var(--gradient-saffron);
+            color: var(--color-white);
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             display: none;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 26px;
             cursor: pointer;
-            transition: all var(--transition-speed);
+            transition: all var(--transition-speed) var(--transition-smooth);
             z-index: 999;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--color-white);
         }
 
         .back-to-top.visible {
             display: flex;
+            animation: fadeIn 0.5s ease-out;
         }
 
         .back-to-top:hover {
-            background: #ff8800;
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--color-saffron-dark) 0%, var(--color-saffron) 100%);
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: var(--shadow-xl);
         }
 
         /* Loading Animation */
@@ -905,12 +1302,12 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--color-secondary) 0%, #1a5ba8 100%);
+            background: var(--gradient-blue);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 10000;
-            transition: opacity 0.5s, visibility 0.5s;
+            transition: opacity 0.6s, visibility 0.6s;
         }
 
         .loader.hidden {
@@ -920,29 +1317,35 @@
 
         .loader-content {
             text-align: center;
-            color: #fff;
+            color: var(--color-white);
         }
 
         .loader-logo {
-            font-size: 64px;
-            margin-bottom: 20px;
+            font-size: 72px;
+            margin-bottom: 25px;
             animation: pulse 1.5s infinite;
+            filter: drop-shadow(0 4px 20px rgba(255, 102, 0, 0.6));
         }
 
         .loader-text {
-            font-size: var(--font-size-2xl);
-            font-weight: 700;
-            margin-bottom: 20px;
+            font-size: var(--font-size-3xl);
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
         }
 
         .loader-spinner {
-            width: 60px;
-            height: 60px;
-            border: 5px solid rgba(255,255,255,0.3);
-            border-top-color: var(--color-primary);
+            width: 70px;
+            height: 70px;
+            border: 6px solid rgba(255,255,255,0.25);
+            border-top-color: var(--color-saffron);
+            border-right-color: var(--color-white);
+            border-bottom-color: var(--color-green);
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(255, 102, 0, 0.4);
         }
 
         @keyframes spin {
@@ -1047,9 +1450,64 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Accessibility: Skip Link */
+        .skip-to-content {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .skip-to-content:focus {
+            position: fixed;
+            left: 16px;
+            top: 16px;
+            width: auto;
+            height: auto;
+            padding: 10px 16px;
+            background: var(--color-blue);
+            color: #fff;
+            border: 2px solid var(--color-saffron);
+            border-radius: 6px;
+            z-index: 1100;
+            box-shadow: var(--shadow-md);
+        }
     </style>
+        <!-- JSON-LD Structured Data -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebSite",
+                    "name": "नगरसेवक मोहीम",
+                    "url": "/",
+                    "inLanguage": "mr-IN",
+                    "potentialAction": {
+                        "@type": "SearchAction",
+                        "target": "/?q={search_term_string}",
+                        "query-input": "required name=search_term_string"
+                    }
+                },
+                {
+                    "@type": "Organization",
+                    "name": "भारतीय जनता पार्टी",
+                    "url": "/",
+                    "logo": "/og-image.jpg"
+                }
+            ]
+        }
+        </script>
 </head>
 <body>
+        <a href="#hero" class="skip-to-content">मूल मजकूराकडे जा</a>
+    <!-- Top Announcement Bar -->
+    <div style="background:linear-gradient(90deg, var(--color-saffron), var(--color-blue)); color:#fff; text-align:center; padding:8px 12px; font-weight:700; letter-spacing:.3px;">
+        लोकशाही • विकास • पारदर्शकता — आपला विश्वास, आमची ताकद
+    </div>
     <!-- Loading Screen -->
     <div class="loader" id="loader">
         <div class="loader-content">
@@ -1066,16 +1524,19 @@
     <nav id="navbar">
         <div class="container">
             <div class="logo">
-                <span class="flag">🇮🇳</span>
+                <span class="flag"></span>
+                <img src="images/logo.png" alt="भारतीय जनता पार्टी लोगो">
                 <span>भारतीय जनता पार्टी</span>
             </div>
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home" onclick="scrollToSection('hero')">होम</a></li>
-                <li><a href="#about" onclick="scrollToSection('about')">माहिती</a></li>
-                <li><a href="#vision" onclick="scrollToSection('vision')">दृष्टिकोन</a></li>
-                <li><a href="#contact" onclick="scrollToSection('contact')">संपर्क</a></li>
-                <button class="lang-toggle" onclick="toggleLanguage()">English</button>
+                <li><a href="#home" aria-label="Home" onclick="scrollToSection('hero')">होम</a></li>
+                <li><a href="#about" aria-label="About" onclick="scrollToSection('about')">माहिती</a></li>
+                <li><a href="#vision" aria-label="Vision" onclick="scrollToSection('vision')">दृष्टिकोन</a></li>
+                <li><a href="#manifesto" aria-label="Manifesto" onclick="scrollToSection('manifesto')">संकल्प</a></li>
+                <li><a href="#volunteer" aria-label="Volunteer" onclick="scrollToSection('volunteer')">स्वयंसेवक</a></li>
+                <li><a href="#contact" aria-label="Contact" onclick="scrollToSection('contact')">संपर्क</a></li>
+                <button class="lang-toggle" aria-label="Toggle language" onclick="toggleLanguage()">English</button>
             </ul>
         </div>
     </nav>
@@ -1090,22 +1551,152 @@
                     <span>🤝 आमचे समर्थन करा</span>
                 </button>
                 <button class="btn btn-secondary" onclick="scrollToSection('vision')">
-                    <span>👁️ आमचा दृष्टिकोन जाणून घ्या</span>
+                    <span> आमचा दृष्टिकोन जाणून घ्या</span>
                 </button>
             </div>
         </div>
     </section>
 
+    <!-- Manifesto / Sankalp Section -->
+    <section class="about" id="manifesto">
+        <div class="container">
+            <h2 id="manifesto-title">घोषणापत्र (संकल्प)</h2>
+            <div class="vision-grid">
+                <div class="vision-card animate-on-scroll">
+                    <h3>🏫 शिक्षण सर्वांसाठी</h3>
+                    <p>प्राथमिक ते उच्च शिक्षणासाठी सुविधा वाढवणे, डिजिटल लॅब्स, शिष्यवृत्ती योजना.</p>
+                </div>
+                <div class="vision-card animate-on-scroll">
+                    <h3>🏥 आरोग्य व सुरक्षा</h3>
+                    <p>महिला व ज्येष्ठ नागरिकांसाठी आरोग्य शिबीर, आपत्कालीन प्रतिसाद पथके.</p>
+                </div>
+                <div class="vision-card animate-on-scroll">
+                    <h3>🛣️ रस्ते व पायाभूत सुविधा</h3>
+                    <p>खड्डेमुक्त रस्ते, स्वच्छ नाले, स्मार्ट लाईटिंग व पार्किंग व्यवस्थापन.</p>
+                </div>
+                <div class="vision-card animate-on-scroll">
+                    <h3>👩‍💼 उद्योजकता व रोजगार</h3>
+                    <p>युवा कौशल्य-विकास, महिला स्वयंसहायता गट, स्थानिक बाजार सशक्तीकरण.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials / Trust Section -->
+ <style>
+/* ===== Testimonials Section ===== */
+.gallery {
+    background: linear-gradient(to bottom, #ffffff, #f7f9fc);
+    padding: 80px 0;
+}
+
+#testimonials-title {
+    text-align: center;
+    font-size: 36px;
+    color: #0a3d91;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+#testimonials-title::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background: #ff7a00;
+    display: block;
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.gallery-item {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(8px);
+    border-radius: 18px;
+    padding: 35px 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.35s ease;
+}
+
+.gallery-item span {
+    color: #333;
+    font-size: 17px;
+    line-height: 1.7;
+    font-weight: 500;
+    display: block;
+}
+
+/* Highlight center card */
+.gallery-item.highlight {
+    background: linear-gradient(135deg, #0a3d91, #1456c0);
+}
+
+.gallery-item.highlight span {
+    color: #ffffff;
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+}
+</style>
+
+<section class="gallery" id="testimonials">
+    <div class="container">
+        <h2 id="testimonials-title">विश्वास व समर्थन</h2>
+
+        <div class="gallery-grid">
+            <div class="gallery-item animate-on-scroll">
+                <span>“सेवा आणि कामगिरीने आमचा वार्ड बदलला.” — स्थानिक शिक्षक</span>
+            </div>
+
+            <div class="gallery-item animate-on-scroll highlight">
+                <span>“पारदर्शक व तत्पर प्रशासन — नागरिकांचा खरा आवाज.” — युवा उद्योजक</span>
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <span>“महिलांच्या सुरक्षेसाठी उपयुक्त उपक्रम.” — महिला स्वयंसहायता गट</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Volunteer CTA Section -->
+    <section class="vision" id="volunteer">
+        <div class="container">
+            <h2 id="volunteer-title">स्वयंसेवक बना — वार्डाच्या विकासात सहभाग नोंदवा</h2>
+            <div class="vision-grid">
+                <div class="vision-card animate-on-scroll">
+                    <h3 class="badge badge-saffron">Volunteer</h3>
+                    <p>घर-घर जनसंपर्क, कार्यक्रम व्यवस्थापन, सोशल मीडिया प्रसार.</p>
+                </div>
+                <div class="vision-card animate-on-scroll">
+                    <h3 class="badge badge-blue">Join WhatsApp</h3>
+                    <p><a href="https://wa.me/919999999999" target="_blank" style="color:var(--color-blue);font-weight:800;">गटात सामील व्हा</a> आणि ताज्या घडामोडी मिळवा.</p>
+                </div>
+                <div class="vision-card animate-on-scroll">
+                    <h3 class="badge badge-outline">Neighborhood Captain</h3>
+                    <p>स्थानिक समस्या नोंदवा आणि उपाययोजना समन्वयित करा.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <h2 id="about-title">माहिती</h2>
             <div class="content">
-                <div class="about-image">
-                    <span>उमेदवारांची फोटो येथे</span>
-                </div>
+                            <div class="about-image">
+                                    <img src="images/candidate.jpg" alt="रामदास मेदगे">
+                            </div>
                 <div class="about-text animate-on-scroll">
-                    <h3 id="candidate-name">रामदास मेदगे</h3>
+                    <h3 id="candidate-name">रामदास एकनाथ मेदगे</h3>
                     <p id="bio-text">मी गेल्या १० वर्षांपासून या वार्डात राहतो आणि समाजसेवेत सक्रियपणे गुंतलेलो आहे. शिक्षण, आरोग्य, रस्ते विकास आणि नागरिक सुविधांमध्ये माझी विशेष आवड आहे.</p>
                     <p id="education-text"><strong>शिक्षण:</strong> इंजीनियरिंग, कॉर्पोरेट व्यवस्थापन</p>
                     <p id="experience-text"><strong>अनुभव:</strong> व्यवसाय व्यवस्थापन, सामाजिक कार्य, समुदाय विकास</p>
@@ -1173,50 +1764,121 @@
         </div>
     </section>
 
-    <!-- Achievements Section -->
+    <!-- Achievements Section with Animated Counters -->
     <section class="achievements">
         <div class="container">
             <h2 id="achievements-title">आमच्या उपलब्धी</h2>
             <div class="achievements-grid">
                 <div class="achievement-card">
-                    <div class="achievement-number"></div>
+                    <div class="achievement-number"><span class="counter" data-target="50">0</span>+</div>
                     <div class="achievement-label" id="ach1">सामाजिक कार्यक्रम</div>
                 </div>
                 <div class="achievement-card">
-                    <div class="achievement-number"></div>
+                    <div class="achievement-number"><span class="counter" data-target="100">0</span>+</div>
                     <div class="achievement-label" id="ach2">हजार व्यक्ती सेवा</div>
                 </div>
                 <div class="achievement-card">
-                    <div class="achievement-number"></div>
+                    <div class="achievement-number"><span class="counter" data-target="20">0</span>+</div>
                     <div class="achievement-label" id="ach3">वर्षांचा अनुभव</div>
                 </div>
                 <div class="achievement-card">
-                    <div class="achievement-number"></div>
+                    <div class="achievement-number"><span class="counter" data-target="100">0</span>%</div>
                     <div class="achievement-label" id="ach4">समर्पण</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Events Section -->
+    <!-- Ward Development Progress Section -->
+    <section class="about">
+        <div class="container">
+            <h2>वार्ड विकास प्रगती</h2>
+            <div class="progress-container">
+                <div class="progress-item animate-on-scroll">
+                    <div class="progress-label">
+                        <span>🛣️ रस्ते विकास</span>
+                        <span class="badge badge-saffron">85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="85" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="progress-item animate-on-scroll">
+                    <div class="progress-label">
+                        <span>💧 पाणी पुरवठा</span>
+                        <span class="badge badge-saffron">75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="75" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="progress-item animate-on-scroll">
+                    <div class="progress-label">
+                        <span>🌳 स्वच्छता</span>
+                        <span class="badge badge-saffron">90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="90" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="progress-item animate-on-scroll">
+                    <div class="progress-label">
+                        <span>💡 विजेचा पुरवठा</span>
+                        <span class="badge badge-saffron">80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="80" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="progress-item animate-on-scroll">
+                    <div class="progress-label">
+                        <span>🏥 आरोग्य सुविधा</span>
+                        <span class="badge badge-saffron">70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-progress="70" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section with Timeline -->
     <section class="events">
         <div class="container">
             <h2 id="events-title">आगामी कार्यक्रम</h2>
-            <div class="events-list">
-                <div class="event-item">
-                    <div class="event-date">२० डिसेंबर २०२५</div>
-                    <div class="event-title" id="event1">सार्वजनिक सभा</div>
-                    <div class="event-location" id="event1-loc">वार्ड कार्यालय, सकाळी १०:०० वाजे</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">२० डिसेंबर २०२५</div>
+                        <div class="timeline-title" id="event1">सार्वजनिक सभा</div>
+                        <div class="timeline-description" id="event1-loc">वार्ड कार्यालय, सकाळी १०:०० वाजे</div>
+                    </div>
                 </div>
-                <div class="event-item">
-                    <div class="event-date">२२ डिसेंबर २०२५</div>
-                    <div class="event-title" id="event2">दरवाजे-दरवाजे मोहिम</div>
-                    <div class="event-location" id="event2-loc">संपूर्ण वार्ड, सकाळी ९:०० ते संध्याकाळ ६:००</div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">२२ डिसेंबर २०२५</div>
+                        <div class="timeline-title" id="event2">दरवाजे-दरवाजे मोहिम</div>
+                        <div class="timeline-description" id="event2-loc">संपूर्ण वार्ड, सकाळी ९:०० ते संध्याकाळ ६:००</div>
+                    </div>
                 </div>
-                <div class="event-item">
-                    <div class="event-date">२४ डिसेंबर २०२५</div>
-                    <div class="event-title" id="event3">युवा संवाद कार्यक्रम</div>
-                    <div class="event-location" id="event3-loc">सामाजिक केंद्र, संध्याकाळी ५:०० वाजे</div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">२४ डिसेंबर २०२५</div>
+                        <div class="timeline-title" id="event3">युवा संवाद कार्यक्रम</div>
+                        <div class="timeline-description" id="event3-loc">सामाजिक केंद्र, संध्याकाळी ५:०० वाजे</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">२६ डिसेंबर २०२५</div>
+                        <div class="timeline-title">महिला सशक्तीकरण कार्यशाळा</div>
+                        <div class="timeline-description">समुदाय केंद्र, सकाळी ११:०० वाजे</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1275,24 +1937,30 @@
 
                 <div>
                     <h3 id="form-title">संदेश पाठवा</h3>
-                    <form onsubmit="handleSubmit(event)">
-                        <div class="form-group">
-                            <label for="name" id="name-label">नाव</label>
-                            <input type="text" id="name" required>
+                    <form onsubmit="handleSubmit(event)" id="contactForm">
+                        <div class="form-group" id="nameGroup">
+                            <label for="name" id="name-label">नाव *</label>
+                            <input type="text" id="name" name="name" required placeholder="आपले पूर्ण नाव">
+                            <span class="form-error" id="nameError" role="alert" aria-live="polite">कृपया आपले नाव प्रविष्ट करा</span>
                         </div>
-                        <div class="form-group">
-                            <label for="phone" id="phone-form-label">फोन</label>
-                            <input type="tel" id="phone" required>
+                        <div class="form-group" id="phoneGroup">
+                            <label for="phone" id="phone-form-label">फोन *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="१० अंकी मोबाईल नंबर" pattern="[0-9]{10}" maxlength="10">
+                            <span class="form-error" id="phoneError" role="alert" aria-live="polite">कृपया वैध १० अंकी मोबाईल नंबर प्रविष्ट करा</span>
                         </div>
-                        <div class="form-group">
-                            <label for="email" id="email-form-label">ईमेल</label>
-                            <input type="email" id="email" required>
+                        <div class="form-group" id="emailGroup">
+                            <label for="email" id="email-form-label">ईमेल *</label>
+                            <input type="email" id="email" name="email" required placeholder="example@email.com">
+                            <span class="form-error" id="emailError" role="alert" aria-live="polite">कृपया वैध ईमेल प्रविष्ट करा</span>
                         </div>
-                        <div class="form-group">
-                            <label for="message" id="message-label">संदेश</label>
-                            <textarea id="message" required></textarea>
+                        <div class="form-group" id="messageGroup">
+                            <label for="message" id="message-label">संदेश *</label>
+                            <textarea id="message" name="message" required placeholder="आपला संदेश येथे लिहा..." minlength="10"></textarea>
+                            <span class="form-error" id="messageError" role="alert" aria-live="polite">कृपया किमान १० अक्षरांचा संदेश लिहा</span>
                         </div>
-                        <button type="submit" class="btn btn-primary" id="submit-btn">पाठवा</button>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">
+                            <span id="submitText">पाठवा</span>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -1309,8 +1977,9 @@
                 <a href="https://www.instagram.com" target="_blank">📷 Instagram</a>
                 <a href="https://www.youtube.com" target="_blank">▶️ YouTube</a>
             </div>
-            <p id="footer-text">&copy; २०२५ नगरसेवक मोहीम. सर्व हक्क राखीव.</p>
+            <p id="footer-text">&copy; २०२6 नगरसेवक मोहीम. सर्व हक्क राखीव.</p>
             <p id="footer-subtext">भारतीय जनता पार्टी - तुमच्या विश्वासावर आमची प्रतिबद्धता</p>
+            <p id="footer-disclaimer" style="margin-top:8px; opacity:0.9; font-size: 13px;">ही वेबसाइट प्रचार हेतूसाठी आहे. सामग्री माहितीपर असून अधिकृत निवड आचारसंहितेचे पालन करते.</p>
         </div>
     </footer>
 
@@ -1443,6 +2112,9 @@
                 'event3': 'युवा संवाद कार्यक्रम',
                 'event3-loc': 'सामाजिक केंद्र, संध्याकाळी ५:०० वाजे',
                 'gallery-title': 'फोटो गॅलरी',
+                'manifesto-title': 'घोषणापत्र (संकल्प)',
+                'testimonials-title': 'विश्वास व समर्थन',
+                'volunteer-title': 'स्वयंसेवक बना — वार्डाच्या विकासात सहभाग नोंदवा',
                 'contact-title': 'आमच्या संपर्क करा',
                 'phone-label': 'फोन:',
                 'email-label': 'ईमेल:',
@@ -1501,6 +2173,9 @@
                 'event3': 'Youth Dialogue Program',
                 'event3-loc': 'Community Center, 5:00 PM',
                 'gallery-title': 'Photo Gallery',
+                'manifesto-title': 'Manifesto (Sankalp)',
+                'testimonials-title': 'Trust & Testimonials',
+                'volunteer-title': 'Become a Volunteer — Join Ward Development',
                 'contact-title': 'Contact Us',
                 'phone-label': 'Phone:',
                 'email-label': 'Email:',
@@ -1532,25 +2207,182 @@
             });
         }
 
+        // Animated Counter Function
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            };
+
+            updateCounter();
+        }
+
+        // Progress Bar Animation
+        function animateProgressBar(element) {
+            const progress = element.getAttribute('data-progress');
+            setTimeout(() => {
+                element.style.width = progress + '%';
+            }, 200);
+        }
+
+        // Form Validation
+        function validateForm(formId) {
+            const form = document.getElementById(formId);
+            let isValid = true;
+
+            // Name validation
+            const name = document.getElementById('name');
+            const nameGroup = document.getElementById('nameGroup');
+            if (name.value.trim().length < 2) {
+                nameGroup.classList.add('error');
+                nameGroup.classList.remove('success');
+                isValid = false;
+            } else {
+                nameGroup.classList.remove('error');
+                nameGroup.classList.add('success');
+            }
+
+            // Phone validation
+            const phone = document.getElementById('phone');
+            const phoneGroup = document.getElementById('phoneGroup');
+            const phoneRegex = /^[0-9]{10}$/;
+            if (!phoneRegex.test(phone.value)) {
+                phoneGroup.classList.add('error');
+                phoneGroup.classList.remove('success');
+                isValid = false;
+            } else {
+                phoneGroup.classList.remove('error');
+                phoneGroup.classList.add('success');
+            }
+
+            // Email validation
+            const email = document.getElementById('email');
+            const emailGroup = document.getElementById('emailGroup');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                emailGroup.classList.add('error');
+                emailGroup.classList.remove('success');
+                isValid = false;
+            } else {
+                emailGroup.classList.remove('error');
+                emailGroup.classList.add('success');
+            }
+
+            // Message validation
+            const message = document.getElementById('message');
+            const messageGroup = document.getElementById('messageGroup');
+            if (message.value.trim().length < 10) {
+                messageGroup.classList.add('error');
+                messageGroup.classList.remove('success');
+                isValid = false;
+            } else {
+                messageGroup.classList.remove('error');
+                messageGroup.classList.add('success');
+            }
+
+            return isValid;
+        }
+
         function handleSubmit(event) {
             event.preventDefault();
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+            
+            if (!validateForm('contactForm')) {
+                return false;
+            }
 
-            alert(currentLanguage === 'marathi' ? 
-                `धन्यवाद ${name}! तुमच्या संदेशाला आमचा प्रतिसाद लवकरच मिळेल।` :
-                `Thank you ${name}! We will get back to you soon.`
-            );
+            const submitBtn = document.getElementById('submit-btn');
+            const submitText = document.getElementById('submitText');
+            
+            // Add loading state
+            submitBtn.classList.add('btn-loading');
+            submitBtn.disabled = true;
+            submitText.textContent = currentLanguage === 'marathi' ? 'पाठवत आहे...' : 'Sending...';
 
-            document.querySelector('form').reset();
+            // Simulate form submission
+            setTimeout(() => {
+                const name = document.getElementById('name').value;
+                
+                submitBtn.classList.remove('btn-loading');
+                submitBtn.disabled = false;
+                submitText.textContent = currentLanguage === 'marathi' ? 'पाठवा' : 'Send';
+
+                alert(currentLanguage === 'marathi' ? 
+                    `धन्यवाद ${name}! तुमच्या संदेशाला आमचा प्रतिसाद लवकरच मिळेल।` :
+                    `Thank you ${name}! We will get back to you soon.`
+                );
+
+                document.getElementById('contactForm').reset();
+                // Remove validation classes
+                document.querySelectorAll('.form-group').forEach(group => {
+                    group.classList.remove('error', 'success');
+                });
+            }, 2000);
+
+            return false;
         }
+
+        // Real-time validation
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('#contactForm input, #contactForm textarea');
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    validateForm('contactForm');
+                });
+            });
+        });
 
         // Initialize
         window.addEventListener('DOMContentLoaded', function() {
             updateLanguage();
             
+            // Animated counters when visible
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counters = entry.target.querySelectorAll('.counter');
+                        counters.forEach(counter => {
+                            if (!counter.classList.contains('counted')) {
+                                counter.classList.add('counted', 'counting');
+                                animateCounter(counter);
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.achievements').forEach(section => {
+                counterObserver.observe(section);
+            });
+
+            // Progress bar animations
+            const progressObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const progressFills = entry.target.querySelectorAll('.progress-fill');
+                        progressFills.forEach(fill => {
+                            if (!fill.classList.contains('animated')) {
+                                fill.classList.add('animated');
+                                animateProgressBar(fill);
+                            }
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            document.querySelectorAll('.progress-container').forEach(container => {
+                progressObserver.observe(container);
+            });
+
             // Add entrance animations
             setTimeout(() => {
                 document.querySelectorAll('.animate-on-scroll').forEach((el, index) => {
