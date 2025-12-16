@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>नगरसेवक - मी तुमच्या विकासाचा प्रतिनिधी</title>
+    <meta name="description" content="नगरसेवक उमेदवार - वार्डाचा विकास, नागरिकांची सेवा">
+    <meta name="keywords" content="नगरसेवक, भारतीय जनता पार्टी, BJP, वार्ड, विकास, नागरिक सेवा">
+    <meta name="author" content="भारतीय जनता पार्टी">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #FF9900;
+            --color-secondary: #003D7A;
+            --color-accent: #2196F3;
+            --color-success: #138808;
+            --color-text: #1a1a1a;
+            --color-bg: #f5f5f5;
+            --color-card: #ffffff;
+            --color-border: #e0e0e0;
+            --color-overlay: rgba(0, 61, 122, 0.95);
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 24px;
+            --font-size-3xl: 32px;
+            --font-size-4xl: 48px;
+            --transition-speed: 0.3s;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 20px rgba(0,0,0,0.15);
+            --shadow-xl: 0 12px 40px rgba(0,0,0,0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', 'Inter', 'Arial', 'Segoe UI', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-success));
+            z-index: 9999;
+            transition: width 0.1s ease-out;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, #1a5ba8 100%);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+            backdrop-filter: blur(10px);
+            transition: all var(--transition-speed) ease;
+        }
+
+        nav.scrolled {
+            padding: 10px 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            color: #fff;
+            font-size: var(--font-size-2xl);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        nav .logo .flag {
+            font-size: 28px;
+            animation: pulse 2s infinite;
+        }
+
+        nav .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+            animation: slideInRight 0.6s ease-out;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-speed);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-primary);
+            transition: width var(--transition-speed);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+
+        .lang-toggle {
+            background: var(--color-primary);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: var(--font-size-base);
+            transition: all var(--transition-speed);
+            box-shadow: 0 4px 10px rgba(255, 153, 0, 0.3);
+        }
+
+        .lang-toggle:hover {
+            background: #ff8800;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 153, 0, 0.4);
+        }
+
+        .lang-toggle:active {
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 28px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, #1a5ba8 50%, var(--color-primary) 100%);
+            color: #fff;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,96C1248,75,1344,53,1392,42.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: var(--font-size-4xl);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            font-weight: 800;
+            animation: fadeIn 0.8s ease-out;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero .tagline {
+            font-size: var(--font-size-xl);
+            margin-bottom: 40px;
+            opacity: 0.95;
+            animation: fadeIn 1s ease-out 0.2s backwards;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeIn 1.2s ease-out 0.4s backwards;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px;
+            font-size: var(--font-size-lg);
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(255,153,0,0.4);
+        }
+
+        .btn-primary:hover {
+            background: #ff8800;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,153,0,0.5);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #fff;
+            color: var(--color-secondary);
+            border: 2px solid #fff;
+            box-shadow: 0 6px 20px rgba(255,255,255,0.3);
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.4);
+        }
+
+        .btn-secondary:active {
+            transform: translateY(-1px);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 20px;
+        }
+
+        section h2 {
+            font-size: var(--font-size-2xl);
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--color-secondary);
+        }
+
+        /* About Section */
+        .about {
+            background: #fff;
+        }
+
+        .about .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .about-text h3 {
+            color: var(--color-secondary);
+            margin-bottom: 15px;
+            font-size: var(--font-size-xl);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* Vision Section */
+        .vision {
+            background: var(--color-bg);
+            position: relative;
+        }
+
+        .vision::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+        }
+
+        .vision .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .vision-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-speed);
+            border-top: 5px solid var(--color-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,153,0,0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .vision-card:hover::before {
+            left: 100%;
+        }
+
+        .vision-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+            border-top-color: var(--color-success);
+        }
+
+        .vision-card h3 {
+            color: var(--color-secondary);
+            margin-bottom: 15px;
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+        }
+
+        .vision-card p {
+            color: #666;
+            font-size: var(--font-size-base);
+            line-height: 1.8;
+        }
+
+        /* Ward Issues Section */
+        .issues {
+            background: #fff;
+        }
+
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .issue-item {
+            background: linear-gradient(135deg, var(--color-primary), #ff8800);
+            color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .issue-item h4 {
+            margin-bottom: 10px;
+            font-size: var(--font-size-lg);
+        }
+
+        /* Achievements Section */
+        .achievements {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, #1a5ba8 100%);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievements::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,153,0,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .achievements::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(33,150,243,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        .achievements .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .achievements h2 {
+            color: #fff;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .achievement-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all var(--transition-speed);
+        }
+
+        .achievement-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .achievement-number {
+            font-size: var(--font-size-4xl);
+            color: var(--color-primary);
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: scaleIn 0.6s ease-out;
+        }
+
+        .achievement-label {
+            color: #fff;
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+            letter-spacing: 0.5px;
+        }
+
+        /* Events Section */
+        .events {
+            background: #fff;
+        }
+
+        .events-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .event-item {
+            background: var(--color-bg);
+            padding: 20px;
+            border-left: 4px solid var(--color-primary);
+            border-radius: 5px;
+        }
+
+        .event-date {
+            color: var(--color-primary);
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .event-title {
+            color: var(--color-secondary);
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: var(--font-size-lg);
+        }
+
+        .event-location {
+            color: #666;
+            font-size: var(--font-size-base);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--color-bg);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--color-secondary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--color-border);
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: var(--font-size-base);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: #fff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            height: 250px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            font-weight: 700;
+            font-size: var(--font-size-lg);
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0,0,0,0.3), transparent);
+            opacity: 0;
+            transition: opacity var(--transition-speed);
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .gallery-item span {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--color-secondary) 0%, #1a5ba8 100%);
+            color: #fff;
+            padding: 50px 20px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-success), var(--color-primary));
+            background-size: 200% 100%;
+            animation: shimmer 3s linear infinite;
+        }
+
+        footer .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        footer .social-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 12px 20px;
+            border-radius: 30px;
+            transition: all var(--transition-speed);
+            font-weight: 600;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        footer .social-links a:hover {
+            background: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255,153,0,0.4);
+            border-color: var(--color-primary);
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .footer-logo {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: pulse 3s infinite;
+        }
+
+        /* Hidden Section */
+        .hidden {
+            display: none;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5);
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: var(--color-primary);
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            z-index: 999;
+            box-shadow: var(--shadow-md);
+        }
+
+        .back-to-top.visible {
+            display: flex;
+        }
+
+        .back-to-top:hover {
+            background: #ff8800;
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--color-secondary) 0%, #1a5ba8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: #fff;
+        }
+
+        .loader-logo {
+            font-size: 64px;
+            margin-bottom: 20px;
+            animation: pulse 1.5s infinite;
+        }
+
+        .loader-text {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255,255,255,0.3);
+            border-top-color: var(--color-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--color-secondary);
+                width: 100%;
+                padding: 20px;
+                gap: 20px;
+                box-shadow: var(--shadow-lg);
+                transition: left var(--transition-speed);
+            }
+
+            nav .nav-links.active {
+                left: 0;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero .tagline {
+                font-size: var(--font-size-base);
+            }
+
+            .about .content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 250px;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .vision-grid,
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float,
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .back-to-top {
+                bottom: 90px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .logo {
+                font-size: var(--font-size-xl);
+            }
+
+            .hero h1 {
+                font-size: 24px;
+            }
+
+            .hero .tagline {
+                font-size: var(--font-size-sm);
+            }
+
+            section h2 {
+                font-size: var(--font-size-xl);
+            }
+
+            .achievement-number {
+                font-size: var(--font-size-3xl);
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo"></div>
+            <div class="loader-text">भारतीय जनता पार्टी</div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="flag">🇮🇳</span>
+                <span>भारतीय जनता पार्टी</span>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="scrollToSection('hero')">होम</a></li>
+                <li><a href="#about" onclick="scrollToSection('about')">माहिती</a></li>
+                <li><a href="#vision" onclick="scrollToSection('vision')">दृष्टिकोन</a></li>
+                <li><a href="#contact" onclick="scrollToSection('contact')">संपर्क</a></li>
+                <button class="lang-toggle" onclick="toggleLanguage()">English</button>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <h1 id="hero-title">नगरसेवकपदासाठी आमचे उमेदवार</h1>
+            <p class="tagline" id="hero-tagline">वार्डाचा विकास, नागरिकांची सेवा - एकत्रित आपण!</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="scrollToSection('contact')">
+                    <span>🤝 आमचे समर्थन करा</span>
+                </button>
+                <button class="btn btn-secondary" onclick="scrollToSection('vision')">
+                    <span>👁️ आमचा दृष्टिकोन जाणून घ्या</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 id="about-title">माहिती</h2>
+            <div class="content">
+                <div class="about-image">
+                    <span>उमेदवारांची फोटो येथे</span>
+                </div>
+                <div class="about-text animate-on-scroll">
+                    <h3 id="candidate-name">रामदास मेदगे</h3>
+                    <p id="bio-text">मी गेल्या १० वर्षांपासून या वार्डात राहतो आणि समाजसेवेत सक्रियपणे गुंतलेलो आहे. शिक्षण, आरोग्य, रस्ते विकास आणि नागरिक सुविधांमध्ये माझी विशेष आवड आहे.</p>
+                    <p id="education-text"><strong>शिक्षण:</strong> इंजीनियरिंग, कॉर्पोरेट व्यवस्थापन</p>
+                    <p id="experience-text"><strong>अनुभव:</strong> व्यवसाय व्यवस्थापन, सामाजिक कार्य, समुदाय विकास</p>
+                    <p id="commitment-text"><strong>प्रतिबद्धता:</strong> वार्डाचा विकास, पारदर्शकता, सर्वांची सेवा</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision" id="vision">
+        <div class="container">
+            <h2 id="vision-title">आमचा दृष्टिकोन</h2>
+            <div class="vision-grid">
+                <div class="vision-card animate-on-scroll">
+                    <h3 id="vision1-title">🌳 स्वच्छ व हरित वार्ड</h3>
+                    <p id="vision1-desc">कचरा व्यवस्थापन, रस्ते स्वच्छता, वृक्षारोपण कार्यक्रम</p>
+                </div>
+                <div class="vision-card animate-on-scroll">
+                    <h3 id="vision2-title">🛣️ उत्तम रस्ते व पायाभूत सुविधा</h3>
+                    <p id="vision2-desc">खड्ड्यांची दुरुस्ती, गल्ली विकास, नाले व जलनिकास सुधार</p>
+                </div>
+                <div class="vision-card animate-on-scroll">
+                    <h3 id="vision3-title">💧 पाण्याची व्यवस्था</h3>
+                    <p id="vision3-desc">पाणी पुरवठा सुधार, पाणी नुकसान कमी करणे, टाकी निर्माण</p>
+                </div>
+                <div class="vision-card animate-on-scroll">
+                    <h3 id="vision4-title">🏥 आरोग्य सेवा</h3>
+                    <p id="vision4-desc">प्राथमिक आरोग्य केंद्र सुधार, महिला आरोग्य शिबीर</p>
+                </div>
+                <div class="vision-card animate-on-scroll">
+                    <h3 id="vision5-title">📚 शिक्षण</h3>
+                    <p id="vision5-desc">शाळा बांधकाम, अभ्यास सामग्री, शिष्यवृत्ती योजना</p>
+                </div>
+                <div class="vision-card animate-on-scroll">
+                    <h3 id="vision6-title">👨‍👩‍👧 महिला व बाल कल्याण</h3>
+                    <p id="vision6-desc">आंगणवाडी सुधार, महिला सुरक्षा, क्रीडा मैदान विकास</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ward Issues Section -->
+    <section class="issues">
+        <div class="container">
+            <h2 id="issues-title">वार्डीय समस्या व समाधान</h2>
+            <div class="issues-grid">
+                <div class="issue-item">
+                    <h4 id="issue1">🚗 वाहतूक</h4>
+                    <p id="issue1-sol">पार्किंग सुविधा, रस्ते विस्तार</p>
+                </div>
+                <div class="issue-item">
+                    <h4 id="issue2">🌊 बाढ नियंत्रण</h4>
+                    <p id="issue2-sol">जलनिकास सुधार, पीएमसी समन्वय</p>
+                </div>
+                <div class="issue-item">
+                    <h4 id="issue3">💡 विजेची व्यवस्था</h4>
+                    <p id="issue3-sol">स्ट्रीट लाइट, विजेचे नुकसान कमी</p>
+                </div>
+                <div class="issue-item">
+                    <h4 id="issue4">🏬 बाजार विकास</h4>
+                    <p id="issue4-sol">व्यापारी सुविधा, स्वच्छता ड्राइव्ह</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements">
+        <div class="container">
+            <h2 id="achievements-title">आमच्या उपलब्धी</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <div class="achievement-number"></div>
+                    <div class="achievement-label" id="ach1">सामाजिक कार्यक्रम</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number"></div>
+                    <div class="achievement-label" id="ach2">हजार व्यक्ती सेवा</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number"></div>
+                    <div class="achievement-label" id="ach3">वर्षांचा अनुभव</div>
+                </div>
+                <div class="achievement-card">
+                    <div class="achievement-number"></div>
+                    <div class="achievement-label" id="ach4">समर्पण</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events">
+        <div class="container">
+            <h2 id="events-title">आगामी कार्यक्रम</h2>
+            <div class="events-list">
+                <div class="event-item">
+                    <div class="event-date">२० डिसेंबर २०२५</div>
+                    <div class="event-title" id="event1">सार्वजनिक सभा</div>
+                    <div class="event-location" id="event1-loc">वार्ड कार्यालय, सकाळी १०:०० वाजे</div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">२२ डिसेंबर २०२५</div>
+                    <div class="event-title" id="event2">दरवाजे-दरवाजे मोहिम</div>
+                    <div class="event-location" id="event2-loc">संपूर्ण वार्ड, सकाळी ९:०० ते संध्याकाळ ६:००</div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">२४ डिसेंबर २०२५</div>
+                    <div class="event-title" id="event3">युवा संवाद कार्यक्रम</div>
+                    <div class="event-location" id="event3-loc">सामाजिक केंद्र, संध्याकाळी ५:०० वाजे</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <h2 id="gallery-title">फोटो गॅलरी</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item animate-on-scroll"><span>सामाजिक कार्य</span></div>
+                <div class="gallery-item animate-on-scroll"><span>समुदाय कार्यक्रम</span></div>
+                <div class="gallery-item animate-on-scroll"><span>वार्ड भेटी</span></div>
+                <div class="gallery-item animate-on-scroll"><span>युवा संवाद</span></div>
+                <div class="gallery-item animate-on-scroll"><span>महिला शिबीर</span></div>
+                <div class="gallery-item animate-on-scroll"><span>शैक्षणिक कार्यक्रम</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 id="contact-title">आमच्या संपर्क करा</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong id="phone-label">फोन:</strong>
+                            <p>+91 XXXXX XXXXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong id="email-label">ईमेल:</strong>
+                            <p>candidate@bjp.org</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong id="location-label">पता:</strong>
+                            <p>वार्ड कार्यालय, [वार्ड नाव]</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💬</div>
+                        <div>
+                            <strong id="whatsapp-label">व्हाट्सअ्याप:</strong>
+                            <p><a href="https://wa.me/919999999999" target="_blank" style="color: #fff;">आमच्या गटात सामील व्हा</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 id="form-title">संदेश पाठवा</h3>
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name" id="name-label">नाव</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" id="phone-form-label">फोन</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" id="email-form-label">ईमेल</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" id="message-label">संदेश</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">पाठवा</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">🇮🇳</div>
+            <div class="social-links">
+                <a href="https://www.facebook.com" target="_blank">📘 Facebook</a>
+                <a href="https://www.twitter.com" target="_blank">𝕏 Twitter</a>
+                <a href="https://www.instagram.com" target="_blank">📷 Instagram</a>
+                <a href="https://www.youtube.com" target="_blank">▶️ YouTube</a>
+            </div>
+            <p id="footer-text">&copy; २०२५ नगरसेवक मोहीम. सर्व हक्क राखीव.</p>
+            <p id="footer-subtext">भारतीय जनता पार्टी - तुमच्या विश्वासावर आमची प्रतिबद्धता</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919999999999" target="_blank" class="whatsapp-float" title="व्हॉट्सअॅपवर संपर्क करा">
+        💬
+    </a>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        ↑
+    </div>
+
+    <script>
+        // Page Loading
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Animate on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Back to Top Function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth Scroll to Section
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        let currentLanguage = 'marathi';
+
+        const translations = {
+            marathi: {
+                'hero-title': 'नगरसेवकपदासाठी आमचे उमेदवार',
+                'hero-tagline': 'वार्डाचा विकास, नागरिकांची सेवा - एकत्रित आपण!',
+                'about-title': 'माहिती',
+                'candidate-name': 'उमेदवारचे नाव',
+                'bio-text': 'मी गेल्या १५ वर्षांपासून या वार्डात राहतो आणि समाजसेवेत सक्रियपणे गुंतलेलो आहे. शिक्षण, आरोग्य, रस्ते विकास आणि नागरिक सुविधांमध्ये माझी विशेष आवड आहे.',
+                'education-text': '<strong>शिक्षण:</strong> इंजीनियरिंग, कॉर्पोरेट व्यवस्थापन',
+                'experience-text': '<strong>अनुभव:</strong> व्यवसाय व्यवस्थापन, सामाजिक कार्य, समुदाय विकास',
+                'commitment-text': '<strong>प्रतिबद्धता:</strong> वार्डाचा विकास, पारदर्शकता, सर्वांची सेवा',
+                'vision-title': 'आमचा दृष्टिकोन',
+                'vision1-title': '🌳 स्वच्छ व हरित वार्ड',
+                'vision1-desc': 'कचरा व्यवस्थापन, रस्ते स्वच्छता, वृक्षारोपण कार्यक्रम',
+                'vision2-title': '🛣️ उत्तम रस्ते व पायाभूत सुविधा',
+                'vision2-desc': 'खड्ड्यांची दुरुस्ती, गल्ली विकास, नाले व जलनिकास सुधार',
+                'vision3-title': '💧 पाण्याची व्यवस्था',
+                'vision3-desc': 'पाणी पुरवठा सुधार, पाणी नुकसान कमी करणे, टाकी निर्माण',
+                'vision4-title': '🏥 आरोग्य सेवा',
+                'vision4-desc': 'प्राथमिक आरोग्य केंद्र सुधार, महिला आरोग्य शिबीर',
+                'vision5-title': '📚 शिक्षण',
+                'vision5-desc': 'शाळा बांधकाम, अभ्यास सामग्री, शिष्यवृत्ती योजना',
+                'vision6-title': '👨‍👩‍👧 महिला व बाल कल्याण',
+                'vision6-desc': 'आंगणवाडी सुधार, महिला सुरक्षा, क्रीडा मैदान विकास',
+                'issues-title': 'वार्डातील समस्या व उपाय',
+                'issue1': '🚗 वाहतूक',
+                'issue1-sol': 'पार्किंग सुविधा, रस्ते रुंदीकरण',
+                'issue2': '🌊 पूर नियंत्रण',
+                'issue2-sol': 'जलनिकास सुधार, महानगरपालिका समन्वय',
+                'issue3': '💡 विजेची व्यवस्था',
+                'issue3-sol': 'रस्त्यावरील दिवे, वीज तूट कमी',
+                'issue4': '🏬 बाजार विकास',
+                'issue4-sol': 'व्यापारी सुविधा, स्वच्छता मोहीम',
+                'achievements-title': 'आमच्या उपलब्धी',
+                'ach1': 'सामाजिक कार्यक्रम',
+                'ach2': 'हजार व्यक्ती सेवा',
+                'ach3': 'वर्षांचा अनुभव',
+                'ach4': 'समर्पण',
+                'events-title': 'आगामी कार्यक्रम',
+                'event1': 'सार्वजनिक सभा',
+                'event1-loc': 'वार्ड कार्यालय, सकाळी १०:०० वाजे',
+                'event2': 'दरवाजे-दरवाजे मोहिम',
+                'event2-loc': 'संपूर्ण वार्ड, सकाळी ९:०० ते संध्याकाळ ६:००',
+                'event3': 'युवा संवाद कार्यक्रम',
+                'event3-loc': 'सामाजिक केंद्र, संध्याकाळी ५:०० वाजे',
+                'gallery-title': 'फोटो गॅलरी',
+                'contact-title': 'आमच्या संपर्क करा',
+                'phone-label': 'फोन:',
+                'email-label': 'ईमेल:',
+                'location-label': 'पता:',
+                'whatsapp-label': 'व्हाट्सअ्याप:',
+                'form-title': 'संदेश पाठवा',
+                'name-label': 'नाव',
+                'phone-form-label': 'फोन',
+                'email-form-label': 'ईमेल',
+                'message-label': 'संदेश',
+                'submit-btn': 'पाठवा',
+                'footer-text': '© २०२५ नगरसेवक मोहीम. सर्व हक्क राखीव.',
+                'footer-subtext': 'भारतीय जनता पार्टी - तुमच्या विश्वासावर आमची प्रतिबद्धता'
+            },
+            english: {
+                'hero-title': 'Our Candidate for Nagarsevak',
+                'hero-tagline': 'Ward Development, Citizen Service - Together We Progress!',
+                'about-title': 'About Us',
+                'candidate-name': 'Candidate Name',
+                'bio-text': 'I have lived in this ward for the past 15 years and have been actively involved in social service. I have special interest in education, healthcare, road development, and citizen amenities.',
+                'education-text': '<strong>Education:</strong> Engineering, Corporate Management',
+                'experience-text': '<strong>Experience:</strong> Business Management, Social Work, Community Development',
+                'commitment-text': '<strong>Commitment:</strong> Ward Development, Transparency, Service to All',
+                'vision-title': 'Our Vision',
+                'vision1-title': '🌳 Clean & Green Ward',
+                'vision1-desc': 'Waste management, street cleanliness, tree plantation programs',
+                'vision2-title': '🛣️ Better Roads & Infrastructure',
+                'vision2-desc': 'Pothole repairs, lane development, drainage improvements',
+                'vision3-title': '💧 Water Management',
+                'vision3-desc': 'Improved water supply, reduce water wastage, tank construction',
+                'vision4-title': '🏥 Healthcare Services',
+                'vision4-desc': 'Primary health center improvements, women\'s health camps',
+                'vision5-title': '📚 Education',
+                'vision5-desc': 'School construction, study materials, scholarship schemes',
+                'vision6-title': '👨‍👩‍👧 Women & Child Welfare',
+                'vision6-desc': 'Anganwadi improvements, women\'s safety, sports ground development',
+                'issues-title': 'Ward Issues & Solutions',
+                'issue1': '🚗 Transportation',
+                'issue1-sol': 'Parking facilities, road widening',
+                'issue2': '🌊 Flood Control',
+                'issue2-sol': 'Drainage improvements, Municipal coordination',
+                'issue3': '💡 Electricity Management',
+                'issue3-sol': 'Street lights, reduce power cuts',
+                'issue4': '🏬 Market Development',
+                'issue4-sol': 'Trader facilities, cleanliness campaigns',
+                'achievements-title': 'Our Achievements',
+                'ach1': 'Social Programs',
+                'ach2': 'Thousand+ People Served',
+                'ach3': 'Years of Experience',
+                'ach4': 'Dedication',
+                'events-title': 'Upcoming Events',
+                'event1': 'Public Meeting',
+                'event1-loc': 'Ward Office, 10:00 AM',
+                'event2': 'Door-to-Door Campaign',
+                'event2-loc': 'Entire Ward, 9:00 AM to 6:00 PM',
+                'event3': 'Youth Dialogue Program',
+                'event3-loc': 'Community Center, 5:00 PM',
+                'gallery-title': 'Photo Gallery',
+                'contact-title': 'Contact Us',
+                'phone-label': 'Phone:',
+                'email-label': 'Email:',
+                'location-label': 'Address:',
+                'whatsapp-label': 'WhatsApp:',
+                'form-title': 'Send Message',
+                'name-label': 'Name',
+                'phone-form-label': 'Phone',
+                'email-form-label': 'Email',
+                'message-label': 'Message',
+                'submit-btn': 'Send',
+                'footer-text': '© 2025 Nagarsevak Campaign. All rights reserved.',
+                'footer-subtext': 'Bharatiya Janata Party - Committed to Your Trust'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'marathi' ? 'english' : 'marathi';
+            updateLanguage();
+            document.querySelector('.lang-toggle').textContent = currentLanguage === 'marathi' ? 'English' : 'मराठी';
+        }
+
+        function updateLanguage() {
+            const elements = document.querySelectorAll('[id]');
+            elements.forEach(el => {
+                if (translations[currentLanguage][el.id]) {
+                    el.innerHTML = translations[currentLanguage][el.id];
+                }
+            });
+        }
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            alert(currentLanguage === 'marathi' ? 
+                `धन्यवाद ${name}! तुमच्या संदेशाला आमचा प्रतिसाद लवकरच मिळेल।` :
+                `Thank you ${name}! We will get back to you soon.`
+            );
+
+            document.querySelector('form').reset();
+        }
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', function() {
+            updateLanguage();
+            
+            // Add entrance animations
+            setTimeout(() => {
+                document.querySelectorAll('.animate-on-scroll').forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
