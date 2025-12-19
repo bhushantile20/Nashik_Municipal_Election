@@ -172,7 +172,7 @@ section h2::after { content:''; position:absolute; bottom:0; left:50%; transform
 
 .about-image { 
   width:100%; 
-  height:500px; 
+  aspect-ratio: 3253 / 4161; 
   background: linear-gradient(135deg, var(--color-primary), #ff8c42); 
   border-radius:20px; 
   overflow:hidden; 
@@ -192,7 +192,7 @@ section h2::after { content:''; position:absolute; bottom:0; left:50%; transform
 .candidate-photo {
   width:100%; 
   height:100%; 
-  object-fit:cover; 
+  object-fit:contain; 
   display:block; 
 }
 
@@ -596,7 +596,7 @@ footer p { margin-bottom:10px; opacity:0.9; }
     .hero h1 { font-size:28px; }
     .hero .tagline { font-size:var(--font-size-base); }
     .about .content, .contact-content { grid-template-columns: 1fr; }
-    .about-image { height:250px; }
+    .about-image { aspect-ratio: 3253 / 4161; max-height: 500px; }
     section { padding:50px 20px; }
     .cta-buttons { flex-direction: column; }
     .btn { width:100%; }
