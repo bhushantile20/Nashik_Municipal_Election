@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="mr">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>नगरसेवक - मी तुमच्या विकासाचा प्रतिनिधी</title>
+    <title>रामदास एकनाथ मेदगे</title>
     <meta name="description" content="नगरसेवक उमेदवार - वार्डाचा विकास, नागरिकांची सेवा">
     <meta name="keywords" content="नगरसेवक, भारतीय जनता पार्टी, BJP, वार्ड, विकास, नागरिक सेवा">
     <meta name="author" content="भारतीय जनता पार्टी">
@@ -24,10 +30,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            /* Authentic BJP Brand Colors */
-            --color-primary: #FF6600;
+    <link rel="stylesheet" href="style.css">
+            <!-- --color-primary: #FF6600;
             --color-saffron: #FF6600;
             --color-saffron-light: #FF9933;
             --color-saffron-dark: #FF4400;
@@ -687,7 +691,7 @@
 
         .about-image {
             width: 100%;
-            height: 500px;
+            height: 800px;
             background: linear-gradient(135deg, var(--color-primary), #ff8c42);
             border-radius: 18px;
             overflow: hidden;
@@ -1115,6 +1119,7 @@
         /* Gallery Section */
         .gallery {
             background: #fff;
+            padding: 60px 0;
         }
 
         .gallery-grid {
@@ -1142,6 +1147,32 @@
             border: 3px solid rgba(255, 255, 255, 0.3);
         }
 
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.45s ease;
+        }
+
+        .gallery-item .caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 12px;
+            color: #fff;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+            font-weight: 700;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
         .gallery-item::before {
             content: '';
             position: absolute;
@@ -1149,9 +1180,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(0,0,0,0.3), transparent);
+            background: linear-gradient(45deg, rgba(0,0,0,0.18), transparent);
             opacity: 0;
             transition: opacity var(--transition-speed);
+            z-index: 1;
         }
 
         .gallery-item:hover::before {
@@ -1159,15 +1191,49 @@
         }
 
         .gallery-item:hover {
-            transform: scale(1.1) rotate(3deg);
+            transform: scale(1.05);
             box-shadow: var(--shadow-2xl);
             border-color: var(--color-white);
         }
 
-        .gallery-item span {
+        /* Lightbox */
+        #lightbox {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            padding: 30px;
+        }
+        #lightbox.active { display: flex; }
+        #lightbox .lightbox-inner {
             position: relative;
-            z-index: 1;
-            padding: 20px;
+            max-width: 1100px;
+            width: 100%;
+            max-height: 90vh;
+        }
+        #lightbox img { width:100%; height:auto; border-radius: 12px; display:block; }
+        .lightbox-close {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: rgba(0,0,0,0.6);
+            color: #fff;
+            border: none;
+            font-size: 26px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+        }
+        .lightbox-caption {
+            margin-top: 10px;
+            color: #fff;
+            text-align: center;
+            font-weight: 700;
         }
 
         /* Footer */
@@ -1256,17 +1322,33 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
             cursor: pointer;
-            transition: all var(--transition-speed);
+            transition: all 0.3s ease;
             z-index: 999;
-            animation: pulse 2s infinite;
+            text-decoration: none;
+            border: none;
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            transform: scale(1.15) translateY(-3px);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.6);
+            background: #20ba5b;
+        }
+
+        .whatsapp-float:active {
+            transform: scale(0.95);
+        }
+
+        .whatsapp-icon {
+            width: 36px;
+            height: 36px;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover .whatsapp-icon {
+            transform: rotate(-10deg) scale(1.1);
         }
 
         /* Back to Top Button */
@@ -1481,8 +1563,44 @@
             z-index: 1100;
             box-shadow: var(--shadow-md);
         }
+
+#manifesto-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.manifesto-strong .vision-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.manifesto-strong .vision-card i {
+    color: #ff9933; /* BJP saffron */
+    font-size: 1.3rem;
+}
+
+.highlight-card {
+    border: 2px solid #ff9933;
+    background: linear-gradient(135deg, rgba(255,153,51,0.15), rgba(255,255,255,0.9));
+}
+
+.oath-card {
+    background: linear-gradient(135deg, #1a1a1a, #333);
+    color: #fff;
+}
+
+.oath-card i {
+    color: #ffd700;
+}
+
+
     </style>
-        <!-- JSON-LD Structured Data -->
+         JSON-LD Structured Data -->
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -1506,12 +1624,12 @@
                 }
             ]
         }
-        </script>
+        </script> 
 </head>
 <body>
         <a href="#hero" class="skip-to-content">मूल मजकूराकडे जा</a>
     <!-- Top Announcement Bar -->
-    <div style="background:linear-gradient(90deg, var(--color-saffron), var(--color-blue)); color:#fff; text-align:center; padding:8px 12px; font-weight:700; letter-spacing:.3px;">
+    <div class="top-announcement">
         लोकशाही • विकास • पारदर्शकता — आपला विश्वास, आमची ताकद
     </div>
     <!-- Loading Screen -->
@@ -1534,15 +1652,14 @@
                 <img src="images/logo.png" alt="भारतीय जनता पार्टी लोगो">
                 <span>भारतीय जनता पार्टी</span>
             </div>
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">☰</button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home" aria-label="Home" onclick="scrollToSection('hero')">होम</a></li>
-                <li><a href="#about" aria-label="About" onclick="scrollToSection('about')">माहिती</a></li>
-                <li><a href="#vision" aria-label="Vision" onclick="scrollToSection('vision')">दृष्टिकोन</a></li>
-                <li><a href="#manifesto" aria-label="Manifesto" onclick="scrollToSection('manifesto')">संकल्प</a></li>
-                <li><a href="#volunteer" aria-label="Volunteer" onclick="scrollToSection('volunteer')">स्वयंसेवक</a></li>
-                <li><a href="#contact" aria-label="Contact" onclick="scrollToSection('contact')">संपर्क</a></li>
-                <button class="lang-toggle" aria-label="Toggle language" onclick="toggleLanguage()">English</button>
+                <li><a href="#hero" aria-label="Home" data-scroll="hero">होम</a></li>
+                <li><a href="#about" aria-label="About" data-scroll="about">माहिती</a></li>
+                <li><a href="#manifesto" aria-label="Manifesto" data-scroll="manifesto">संकल्प</a></li> <li><a href="#vision" aria-label="Vision" data-scroll="vision">दृष्टिकोन</a></li>
+                <li><a href="#events" aria-label="events" data-scroll="events">आगामी कार्यक्रम</a></li>
+                <li><a href="#grievance" aria-label="Grievance" data-scroll="grievance">तक्रार नोंदवा</a></li>
+                <button class="lang-toggle" id="langToggle" aria-label="Toggle language">English</button>
             </ul>
         </div>
     </nav>
@@ -1550,108 +1667,249 @@
     <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="container">
-            <h1 id="hero-title">नगरसेवकपदासाठी आमचे उमेदवार</h1>
-            <p class="tagline" id="hero-tagline">वार्डाचा विकास, नागरिकांची सेवा - एकत्रित आपण!</p>
+            <h1 id="hero-title">नगरसेवकपदासाठी जनतेचा विश्वास असलेला उमेदवारर</h1>
+            <p class="tagline" id="hero-tagline">प्रत्येक नागरिकासाठी जबाबदारीने आणि प्रामाणिकपणे सेवा</p>
             <div class="cta-buttons">
-                <button class="btn btn-primary" onclick="scrollToSection('contact')">
-                    <span>🤝 आमचे समर्थन करा</span>
+                <button class="btn btn-primary" data-scroll="grievance">
+                    <span>📝 समस्या / सूचना आम्हाला कळवा</span>
                 </button>
-                <button class="btn btn-secondary" onclick="scrollToSection('vision')">
-                    <span> आमचा दृष्टिकोन जाणून घ्या</span>
+                <button class="btn btn-secondary" data-scroll="vision">
+                    <span> आमचा दृष्टिकोन व संकल्प जाणून घ्या</span>
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- Manifesto / Sankalp Section -->
-    <section class="about" id="manifesto">
+     <!-- About Section -->
+    <section class="about" id="about">
         <div class="container">
-            <h2 id="manifesto-title">घोषणापत्र (संकल्प)</h2>
-            <div class="vision-grid">
-                <div class="vision-card animate-on-scroll">
-                    <h3>🏫 शिक्षण सर्वांसाठी</h3>
-                    <p>प्राथमिक ते उच्च शिक्षणासाठी सुविधा वाढवणे, डिजिटल लॅब्स, शिष्यवृत्ती योजना.</p>
+            <h2 id="about-title">माहिती</h2>
+            <div class="content">
+                <div class="about-image">
+                    <img src="images/candidate.jpg" alt="रामदास मेदगे" class="candidate-photo">
                 </div>
-                <div class="vision-card animate-on-scroll">
-                    <h3>🏥 आरोग्य व सुरक्षा</h3>
-                    <p>महिला व ज्येष्ठ नागरिकांसाठी आरोग्य शिबीर, आपत्कालीन प्रतिसाद पथके.</p>
-                </div>
-                <div class="vision-card animate-on-scroll">
-                    <h3>🛣️ रस्ते व पायाभूत सुविधा</h3>
-                    <p>खड्डेमुक्त रस्ते, स्वच्छ नाले, स्मार्ट लाईटिंग व पार्किंग व्यवस्थापन.</p>
-                </div>
-                <div class="vision-card animate-on-scroll">
-                    <h3>👩‍💼 उद्योजकता व रोजगार</h3>
-                    <p>युवा कौशल्य-विकास, महिला स्वयंसहायता गट, स्थानिक बाजार सशक्तीकरण.</p>
+                <div class="about-text animate-on-scroll">
+                    <h3 id="candidate-name" class="candidate-name-title">रामदास एकनाथ मेदगे</h3>
+                    <p class="candidate-tagline">"आपल्या वॉर्डच्या भल्यासाठी, शक्य तितक्या प्रामाणिकपणे काम करत राहण्याची माझी नम्र इच्छा आहे.</p>
+                    
+                    <div class="bio-container">
+                        <p id="bio-text" class="bio-main">मी या वॉर्डमध्ये पिढ्यान्‌पिढ्या वास्तव्यास असलेला तुमच्याच घरातील एक सामान्य माणूस आहे. इथेच वाढलो, इथेच शिकत गेलो आणि इथल्याच लोकांसोबत रोजचे सुख-दुःख, अडचणी आणि आनंद अनुभवत आलो आहे. त्यामुळे या वॉर्डच्या समस्या मला सांगाव्या लागत नाहीत — त्या मला स्वतःच्या वाटतात.</p>
+<!--                         
+                        <p class="bio-text">समाजासाठी काहीतरी करण्याची भावना ही माझ्यासाठी पदाची अपेक्षा नसून, मनातून आलेली जबाबदारी आहे. शिक्षण, आरोग्य, रस्ते आणि मूलभूत नागरी सुविधा यांसारख्या गरजांकडे मी नेहमीच सेवाभावाने, प्रामाणिकपणे आणि सातत्याने पाहण्याचा प्रयत्न केला आहे.</p>
+                        
+                        <p class="bio-text">गाजावाजा किंवा मोठ्या शब्दांपेक्षा, शांतपणे काम करून लोकांच्या विश्वासाला पात्र ठरणे हीच माझी खरी ओळख राहिली आहे. तुमच्या पाठिंब्याने आणि मार्गदर्शनाने, वॉर्डच्या भल्यासाठी प्रामाणिक प्रयत्न करत राहण्याची माझी नम्र इच्छा आहे.</p>
+                    </div> -->
+
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">🎓</div>
+                            <div class="stat-content">
+                                <p id="experience-text" class="stat-title"><strong>अनुभव: </strong></p>
+                                <p class="stat-desc"></p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🤝</div>
+                            <div class="stat-content">
+                                <p id="commitment-text" class="stat-title"><strong>प्रतिबद्धता :</strong></p>
+                                <p class="stat-desc"></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- Manifesto / Sankalp Section -->
+ <section class="about" id="manifesto">
+    <div class="container">
+        <h2 id="manifesto-title">मी तुम्हाला शब्द देतो !!</h2>
+
+        <div class="vision-grid manifesto-strong">
+
+            <div class="vision-card animate-on-scroll">
+                <h3><i class="fas fa-road"></i> मजबूत पायाभूत सुविधा</h3>
+                <p>रस्ते, लाईट, ड्रेनेज दर्जेदार आणि टिकाऊ कामाची ठाम हमी.</p>
+            </div>
+
+            <div class="vision-card animate-on-scroll">
+                <h3><i class="fas fa-futbol"></i> तरुणांचा विकास</h3>
+                <p>मैदान, स्पोर्ट्स ट्रेनिंग व भरती तयारी केंद्र उभारण्याचा निर्धार.</p>
+            </div>
+
+            <div class="vision-card animate-on-scroll">
+                <h3><i class="fas fa-user-shield"></i> ज्येष्ठ नागरिक सुरक्षा</h3>
+                <p>वृद्धांसाठी मोफत प्रवास, आरोग्य सुविधा व सुरक्षित वातावरण.</p>
+            </div>
+
+            <div class="vision-card animate-on-scroll">
+                <h3><i class="fas fa-female"></i> महिला सक्षमीकरण</h3>
+                <p>कौशल्य विकास, व्यवसाय प्रशिक्षण व स्वयंसहाय्यता गटांना बळ.</p>
+            </div>
+
+            <div class="vision-card animate-on-scroll">
+                <h3><i class="fas fa-broom"></i> स्वच्छ व सुरक्षित प्रभाग</h3>
+                <p>स्वच्छता, सुरक्षितता आणि सुंदर प्रभागासाठी सतत जनसेवा.</p>
+            </div>
+
+            <div class="vision-card animate-on-scroll">
+                <h3><i class="fas fa-hand-holding-heart"></i> जनहित प्रथम</h3>
+                <p>प्राथमिक कामे थेट जनतेच्या हितासाठीच असतील.</p>
+            </div>
+
+            <div class="vision-card animate-on-scroll highlight-card">
+                <h3><i class="fas fa-map-marker-alt"></i>स्मशानभूमीचा प्रश्न</h3>
+                <p>गेली अनेक वर्षे प्रलंबित राहिलेला “स्मशानभूमीचा प्रश्न ” पूर्णपणे मार्गी लावणार, हे काम प्रभागाच्या सन्मानाशी आणि भावनांशी जोडलेले आहे आणि त्यासाठी मी ठामपणे लढणार आहे</p>
+            </div>
+
+          
+
+        </div>
+    </div>
+</section>
+
+<section class="gallery" id="gallery">
+    <div class="container">
+        <h2 id="gallery-title">फोटो गॅलरी</h2>
+
+        <div class="gallery-grid">
+            
+
+          
+                 <div class="gallery-item animate-on-scroll">
+                <img src="images/gallery16.jpg" alt="छठ पूजा" loading="lazy">
+                <div class="caption-below">
+                    छठ पूजा महोत्सव<br>
+                    सामाजिक व धार्मिक समरसतेचे दर्शन
+                </div>
+            </div>
+  <div class="gallery-item animate-on-scroll">
+                <img src="images/gallery10.jpg" alt="वाढदिवस योगदान" loading="lazy">
+                <div class="caption-below">
+                    वाढदिवसानिमित्त मुख्यमंत्री<br>
+                    सहाय्यता निधीस आर्थिक योगदान
+                </div>
+            </div>
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/gallery2.jpg" alt="डॉक्टर सन्मान" loading="lazy">
+                <div class="caption-below">
+                    समाजाच्या आरोग्यासाठी समर्पित<br>
+                    डॉक्टरांचा सन्मान सोहळा
+                </div>
+            </div>
+
+           
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/gallery4.jpg" alt="नागरी समस्या" loading="lazy">
+                <div class="caption-below">
+                    नागरी समस्यांसाठी प्रभावी पाठपुरावा<br>
+                    जनतेचा आवाज प्रशासनापर्यंत
+                </div>
+            </div>
+
+             <div class="gallery-item animate-on-scroll">
+                <img src="images/gallery1.jpg" alt="कुस्ती दंगल" loading="lazy">
+                <div class="caption-below">
+                    छत्रपती संभाजी महाराज जयंतीनिमित्त<br>
+                    भव्य कुस्ती दंगल आयोजन
+                </div>   
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/gallery6.jpg" alt="योग दिन" loading="lazy">
+                <div class="caption-below">
+                    आंतरराष्ट्रीय योग दिनानिमित्त<br>
+                    मोफत योग प्रशिक्षण शिबिर
+                </div>
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/gallery7.jpg" alt="कराटे प्रशिक्षण" loading="lazy">
+                <div class="caption-below">
+                    महिला व युवतींसाठी<br>
+                    मोफत कराटे प्रशिक्षण शिबिर
+                </div>
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/gallery8.jpg" alt="लाडकी बहीण योजना" loading="lazy">
+                <div class="caption-below">
+                    लाडकी बहीण योजनेचा लाभ<br>
+                    गरजू महिलांपर्यंत
+                </div>
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/gallery9.jpg" alt="कोरोना मदतकार्य" loading="lazy">
+                <div class="caption-below">
+                    कोरोना महामारीत गरजू नागरिकांना<br>
+                    मदत व प्लाझ्मा दान
+                </div>
+            </div>
+
+          
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/gallery11.jpg" alt="पुस्तक वाटप" loading="lazy">
+                <div class="caption-below">
+                    विद्यार्थ्यांना प्रेरणादायी पुस्तके वाटप<br>
+                    वाचनसंस्कृतीला चालना
+                </div>
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/gallery12.jpg" alt="शाळा भेट" loading="lazy">
+                <div class="caption-below">
+                    शाळा भेटीदरम्यान विद्यार्थ्यांशी<br>
+                    थेट संवाद व मार्गदर्शन
+                </div>
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/gallery13.jpg" alt="भाजप प्रवेश" loading="lazy">
+                <div class="caption-below">
+                    भाजप प्रवेशाचा ऐतिहासिक क्षण<br>
+                    कार्यकर्त्यांचा जाहीर प्रवेश
+                </div>
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/gallery14.jpg" alt="रक्तदान शिबिर" loading="lazy">
+                <div class="caption-below">
+                    मुख्यमंत्री मा. देवेंद्र फडणवीस साहेबांच्या<br>
+                    वाढदिवसानिमित्त भव्य रक्तदान शिबिर
+                </div>
+            </div>
+
+            <div class="gallery-item animate-on-scroll">
+                <img src="images/gallery15.jpg" alt="हनुमान जयंती" loading="lazy">
+                <div class="caption-below">
+                    हनुमान जयंतीनिमित्त<br>
+                    महाआरती व धार्मिक कार्यक्रम
+                </div>
+            </div>
+
+             <div class="gallery-item animate-on-scroll">
+                <img src="images/gallery3.jpg" alt="वृक्षारोपण अभियान" loading="lazy">
+                <div class="caption-below">
+                    पर्यावरण संवर्धनासाठी<br>
+                    वृक्षारोपण अभियान
+                </div>
+            </div>
+
+       
+
+        </div>
+        <div style="text-align: center; margin-top: 50px; font-size: 18px; font-weight: 600; color: #333; line-height: 1.6;">
+            अशाच सेवा आणि विकासासाठी तुमचा पाठिंबा आवश्यक आहे.
+        </div>
+    </div>
+</section>
+
 
     <!-- Testimonials / Trust Section -->
- <style>
-/* ===== Testimonials Section ===== */
-.gallery {
-    background: linear-gradient(to bottom, #ffffff, #f7f9fc);
-    padding: 80px 0;
-}
 
-#testimonials-title {
-    text-align: center;
-    font-size: 36px;
-    color: #0a3d91;
-    margin-bottom: 50px;
-    position: relative;
-}
-
-#testimonials-title::after {
-    content: "";
-    width: 60px;
-    height: 4px;
-    background: #ff7a00;
-    display: block;
-    margin: 12px auto 0;
-    border-radius: 2px;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.gallery-item {
-    background: rgba(255, 255, 255, 0.88);
-    backdrop-filter: blur(8px);
-    border-radius: 18px;
-    padding: 35px 28px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    transition: all 0.35s ease;
-}
-
-.gallery-item span {
-    color: #333;
-    font-size: 17px;
-    line-height: 1.7;
-    font-weight: 500;
-    display: block;
-}
-
-/* Highlight center card */
-.gallery-item.highlight {
-    background: linear-gradient(135deg, #0a3d91, #1456c0);
-}
-
-.gallery-item.highlight span {
-    color: #ffffff;
-}
-
-.gallery-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
-}
-</style>
 
 <section class="gallery" id="testimonials">
     <div class="container">
@@ -1673,44 +1931,44 @@
     </div>
 </section>
 
-    <!-- Volunteer CTA Section -->
     <section class="vision" id="volunteer">
-        <div class="container">
-            <h2 id="volunteer-title">स्वयंसेवक बना — वार्डाच्या विकासात सहभाग नोंदवा</h2>
-            <div class="vision-grid">
-                <div class="vision-card animate-on-scroll">
-                    <h3 class="badge badge-saffron">Volunteer</h3>
-                    <p>घर-घर जनसंपर्क, कार्यक्रम व्यवस्थापन, सोशल मीडिया प्रसार.</p>
-                </div>
-                <div class="vision-card animate-on-scroll">
-                    <h3 class="badge badge-whatsapp">💬 Join WhatsApp</h3>
-                    <p><a href="https://wa.me/919999999999" target="_blank" style="color:#25D366;font-weight:800;">गटात सामील व्हा</a> आणि ताज्या घडामोडी मिळवा.</p>
-                </div>
-                <div class="vision-card animate-on-scroll">
-                    <h3 class="badge badge-outline">Neighborhood Captain</h3>
-                    <p>स्थानिक समस्या नोंदवा आणि उपाययोजना समन्वयित करा.</p>
-                </div>
+    <div class="container">
+        <h2 id="volunteer-title">एकत्र येऊया — आपल्या वॉर्डसाठी थोडा वेळ द्या</h2>
+
+        <div class="vision-grid">
+
+            <div class="vision-card animate-on-scroll">
+                <h3 class="badge badge-saffron">🤝 स्वयंसेवक</h3>
+                <p>
+                    घर-घर संवाद, कार्यक्रमांमध्ये मदत
+                    आणि समाजकार्याला मनापासून हातभार.
+                </p>
             </div>
-        </div>
-    </section>
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 id="about-title">माहिती</h2>
-            <div class="content">
-                            <div class="about-image">
-                                    <img src="images/candidate.jpg" alt="रामदास मेदगे">
-                            </div>
-                <div class="about-text animate-on-scroll">
-                    <h3 id="candidate-name">रामदास एकनाथ मेदगे</h3>
-                    <p id="bio-text">मी गेल्या १० वर्षांपासून या वार्डात राहतो आणि समाजसेवेत सक्रियपणे गुंतलेलो आहे. शिक्षण, आरोग्य, रस्ते विकास आणि नागरिक सुविधांमध्ये माझी विशेष आवड आहे.</p>
-                    <p id="education-text"><strong>शिक्षण:</strong> कॉर्पोरेट व्यवस्थापन</p>
-                    <p id="experience-text"><strong>अनुभव:</strong> व्यवसाय व्यवस्थापन, सामाजिक कार्य, समुदाय विकास</p>
-                    <p id="commitment-text"><strong>प्रतिबद्धता:</strong> वार्डाचा विकास, पारदर्शकता, सर्वांची सेवा</p>
-                </div>
+
+            <div class="vision-card animate-on-scroll">
+                <h3 class="badge badge-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp समूह</h3>
+                <p>
+                    <a href="https://wa.me/919999999999" target="_blank" class="whatsapp-join">
+                        गटात सामील व्हा
+                    </a>
+                    आणि स्थानिक घडामोडी जाणून घ्या.
+                </p>
             </div>
+
+            <div class="vision-card animate-on-scroll">
+                <h3 class="badge badge-outline">🏘️ भाग प्रतिनिधी</h3>
+                <p>
+                    आपल्या परिसरातील समस्या नोंदवा
+                    आणि उपायांसाठी मदत करा.
+                </p>
+            </div>
+
         </div>
-    </section>
+
+        
+    </div>
+</section>
+
 
     <!-- Vision Section -->
     <section class="vision" id="vision">
@@ -1771,7 +2029,7 @@
     </section>
 
     <!-- Achievements Section with Animated Counters -->
-    <section class="achievements">
+    <!-- <section class="achievements">
         <div class="container">
             <h2 id="achievements-title">आमच्या उपलब्धी</h2>
             <div class="achievements-grid">
@@ -1793,10 +2051,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Ward Development Progress Section -->
-    <section class="about">
+    <!-- <section class="about">
         <div class="container">
             <h2>वार्ड विकास प्रगती</h2>
             <div class="progress-container">
@@ -1806,7 +2064,7 @@
                         <span class="badge badge-saffron">85%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" data-progress="85" style="width: 0%"></div>
+                        <div class="progress-fill" data-progress="85"></div>
                     </div>
                 </div>
                 <div class="progress-item animate-on-scroll">
@@ -1815,7 +2073,7 @@
                         <span class="badge badge-saffron">75%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" data-progress="75" style="width: 0%"></div>
+                        <div class="progress-fill" data-progress="75"></div>
                     </div>
                 </div>
                 <div class="progress-item animate-on-scroll">
@@ -1824,7 +2082,7 @@
                         <span class="badge badge-saffron">90%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" data-progress="90" style="width: 0%"></div>
+                        <div class="progress-fill" data-progress="90"></div>
                     </div>
                 </div>
                 <div class="progress-item animate-on-scroll">
@@ -1833,7 +2091,7 @@
                         <span class="badge badge-saffron">80%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" data-progress="80" style="width: 0%"></div>
+                        <div class="progress-fill" data-progress="80"></div>
                     </div>
                 </div>
                 <div class="progress-item animate-on-scroll">
@@ -1842,164 +2100,160 @@
                         <span class="badge badge-saffron">70%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" data-progress="70" style="width: 0%"></div>
+                        <div class="progress-fill" data-progress="70"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Events Section with Timeline -->
-    <section class="events">
-        <div class="container">
-            <h2 id="events-title">आगामी कार्यक्रम</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">२० डिसेंबर २०२५</div>
-                        <div class="timeline-title" id="event1">सार्वजनिक सभा</div>
-                        <div class="timeline-description" id="event1-loc">वार्ड कार्यालय, सकाळी १०:०० वाजे</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">२२ डिसेंबर २०२५</div>
-                        <div class="timeline-title" id="event2">दरवाजे-दरवाजे मोहिम</div>
-                        <div class="timeline-description" id="event2-loc">संपूर्ण वार्ड, सकाळी ९:०० ते संध्याकाळ ६:००</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">२४ डिसेंबर २०२५</div>
-                        <div class="timeline-title" id="event3">युवा संवाद कार्यक्रम</div>
-                        <div class="timeline-description" id="event3-loc">सामाजिक केंद्र, संध्याकाळी ५:०० वाजे</div>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">२६ डिसेंबर २०२५</div>
-                        <div class="timeline-title">महिला सशक्तीकरण कार्यशाळा</div>
-                        <div class="timeline-description">समुदाय केंद्र, सकाळी ११:०० वाजे</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+ 
 
     <!-- Gallery Section -->
-    <section class="gallery">
-        <div class="container">
-            <h2 id="gallery-title">फोटो गॅलरी</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item animate-on-scroll"><span>सामाजिक कार्य</span></div>
-                <div class="gallery-item animate-on-scroll"><span>समुदाय कार्यक्रम</span></div>
-                <div class="gallery-item animate-on-scroll"><span>वार्ड भेटी</span></div>
-                <div class="gallery-item animate-on-scroll"><span>युवा संवाद</span></div>
-                <div class="gallery-item animate-on-scroll"><span>महिला शिबीर</span></div>
-                <div class="gallery-item animate-on-scroll"><span>शैक्षणिक कार्यक्रम</span></div>
+    
+
+
+ <section class="events" id="events">
+    <div class="container">
+        <h2 id="events-title">महापालिका निवडणूक कार्यक्रम</h2>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">२३ डिसेंबर – ३० डिसेंबर</div>
+                    <div class="timeline-title">नामनिर्देशन पत्र स्वीकारणे</div>
+                    <div class="timeline-description">उमेदवारांकडून अर्ज स्वीकारले जातील</div>
+                </div>
             </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">३१ डिसेंबर</div>
+                    <div class="timeline-title">अर्जांची छाननी</div>
+                    <div class="timeline-description">सर्व नामनिर्देशन अर्जांची तपासणी</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">२ जानेवारी</div>
+                    <div class="timeline-title">उमेदवारी माघारीची अंतिम मुदत</div>
+                    <div class="timeline-description">उमेदवारांना अर्ज मागे घेण्याची संधी</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">३ जानेवारी</div>
+                    <div class="timeline-title">चिन्ह वाटप व अंतिम उमेदवार यादी</div>
+                    <div class="timeline-description">अधिकृत उमेदवार यादी जाहीर</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">१५ जानेवारी</div>
+                    <div class="timeline-title">मतदान</div>
+                    <div class="timeline-description">मतदारांकडून मतदान प्रक्रिया</div>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-marker"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">१६ जानेवारी</div>
+                    <div class="timeline-title">निकाल</div>
+                    <div class="timeline-description">मतमोजणी व निकाल जाहीर</div>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
+
+
+    <!-- Grievance / Problem Submission Section -->
+    <section class="grievance" id="grievance">
         <div class="container">
-            <h2 id="contact-title">आमच्या संपर्क करा</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">📞</div>
-                        <div>
-                            <strong id="phone-label">फोन:</strong>
-                            <p>+91 XXXXX XXXXX</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📧</div>
-                        <div>
-                            <strong id="email-label">ईमेल:</strong>
-                            <p>candidate@bjp.org</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">📍</div>
-                        <div>
-                            <strong id="location-label">पता:</strong>
-                            <p>वार्ड कार्यालय, [वार्ड नाव]</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">💬</div>
-                        <div>
-                            <strong id="whatsapp-label">व्हाट्सअ्याप:</strong>
-                            <p><a href="https://wa.me/919999999999" target="_blank" style="color: #fff;">आमच्या गटात सामील व्हा</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 id="form-title">संदेश पाठवा</h3>
-                    <form onsubmit="handleSubmit(event)" id="contactForm">
-                        <div class="form-group" id="nameGroup">
-                            <label for="name" id="name-label">नाव *</label>
-                            <input type="text" id="name" name="name" required placeholder="आपले पूर्ण नाव">
-                            <span class="form-error" id="nameError" role="alert" aria-live="polite">कृपया आपले नाव प्रविष्ट करा</span>
-                        </div>
-                        <div class="form-group" id="phoneGroup">
-                            <label for="phone" id="phone-form-label">फोन *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="१० अंकी मोबाईल नंबर" pattern="[0-9]{10}" maxlength="10">
-                            <span class="form-error" id="phoneError" role="alert" aria-live="polite">कृपया वैध १० अंकी मोबाईल नंबर प्रविष्ट करा</span>
-                        </div>
-                        <div class="form-group" id="emailGroup">
-                            <label for="email" id="email-form-label">ईमेल *</label>
-                            <input type="email" id="email" name="email" required placeholder="example@email.com">
-                            <span class="form-error" id="emailError" role="alert" aria-live="polite">कृपया वैध ईमेल प्रविष्ट करा</span>
-                        </div>
-                        <div class="form-group" id="messageGroup">
-                            <label for="message" id="message-label">संदेश *</label>
-                            <textarea id="message" name="message" required placeholder="आपला संदेश येथे लिहा..." minlength="10"></textarea>
-                            <span class="form-error" id="messageError" role="alert" aria-live="polite">कृपया किमान १० अक्षरांचा संदेश लिहा</span>
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="submit-btn">
-                            <span id="submitText">पाठवा</span>
-                        </button>
-                    </form>
-                </div>
+            <h2 id="grievance-title">आपली समस्या / तक्रार नोंदवा</h2>
+            <p class="grievance-subtitle">आपली कोणतीही समस्या, तक्रार किंवा सुझाव सुरक्षितपणे नोंदवा. आपले प्रत्येक शब्द आमच्या कानातून वार्डाच्या भल्यासाठी कार्य करण्याचा आधार बनेल.</p>
+            
+            <div class="grievance-form-wrapper">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSdI8nsKcBI5wqF9YWWImEqofx3oFvL3sgLrNVnTNjHnDKudlg/viewform?usp=header" 
+                    width="100%" 
+                    height="600" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    title="Grievance Form"
+                    loading="lazy">
+                    लोड होत आहे...
+                </iframe>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-logo">🇮🇳</div>
-            <div class="social-links">
-                <a href="https://www.facebook.com" target="_blank">📘 Facebook</a>
-                <a href="https://www.twitter.com" target="_blank">𝕏 Twitter</a>
-                <a href="https://www.instagram.com" target="_blank">📷 Instagram</a>
-                <a href="https://www.youtube.com" target="_blank">▶️ YouTube</a>
+      <div class="container">
+    <div class="footer-logo"></div>
+
+    <div class="social-links">
+        <a href="https://www.facebook.com/ramdas.medge.3/" target="_blank" class="facebook">
+            <i class="fab fa-facebook-f"></i>
+            <span>Facebook</span>
+        </a>
+        <!-- <a href="https://www.twitter.com/ramdas_medge" target="_blank" class="twitter">
+            <i class="fab fa-x-twitter"></i>
+            <span>Twitter</span>
+        </a> -->
+        <a href="https://www.instagram.com/ramdas.medge.3/" target="_blank" class="instagram">
+            <i class="fab fa-instagram"></i>
+            <span>Instagram</span>
+        </a>
+
+
+        </a>
+    </div>
+</div>
+
             </div>
             <p id="footer-text">&copy; २०२6 नगरसेवक मोहीम. सर्व हक्क राखीव.</p>
             <p id="footer-subtext">भारतीय जनता पार्टी - तुमच्या विश्वासावर आमची प्रतिबद्धता</p>
-            <p id="footer-disclaimer" style="margin-top:8px; opacity:0.9; font-size: 13px;">ही वेबसाइट प्रचार हेतूसाठी आहे. सामग्री माहितीपर असून अधिकृत निवड आचारसंहितेचे पालन करते.</p>
+            <p id="footer-disclaimer" class="footer-disclaimer">ही वेबसाइट प्रचार हेतूसाठी आहे. सामग्री माहितीपर असून अधिकृत निवड आचारसंहितेचे पालन करते.</p>
         </div>
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/919999999999" target="_blank" class="whatsapp-float" title="व्हॉट्सअॅपवर संपर्क करा">
-        💬
+    <a href="https://wa.me/919999999999" target="_blank" class="whatsapp-float" title="व्हॉट्सअॅपवर संपर्क करा" aria-label="WhatsApp">
+        <img src="images/whatsapp.png" alt="WhatsApp" class="whatsapp-icon">
     </a>
 
+    <!-- Lightbox (hidden by default) -->
+    <div id="lightbox" aria-hidden="true">
+        <div class="lightbox-inner" role="dialog" aria-modal="true">
+            <button class="lightbox-close" aria-label="Close">×</button>
+            <img id="lightbox-img" src="" alt="">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
     <!-- Back to Top Button -->
-    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">
+    <div class="back-to-top" id="backToTop">
         ↑
     </div>
 
-    <script>
+<!-- script moved to script.js -->
+<!--
         // Page Loading
         window.addEventListener('load', function() {
             setTimeout(() => {
@@ -2079,8 +2333,12 @@
                 'hero-tagline': 'वार्डाचा विकास, नागरिकांची सेवा - एकत्रित आपण!',
                 'about-title': 'माहिती',
                 'candidate-name': 'रामदास एकनाथ मेदगे ',
-                'bio-text': 'मी गेल्या १० वर्षांपासून या वार्डात राहतो आणि समाजसेवेत सक्रियपणे गुंतलेलो आहे. शिक्षण, आरोग्य, रस्ते विकास आणि नागरिक सुविधांमध्ये माझी विशेष आवड आहे.',
-                'education-text': '<strong>शिक्षण:</strong> कॉर्पोरेट व्यवस्थापन',
+                'bio-text': 'मी या वॉर्डमध्ये पिढ्यान्‌पिढ्या वास्तव्यास असलेला तुमच्याच घरातील एक सामान्य माणूस आहे. इथेच वाढलो, इथेच शिकत गेलो आणि इथल्याच लोकांसोबत रोजचे सुख-दुःख, अडचणी आणि आनंद अनुभवत आलो आहे. त्यामुळे या वॉर्डच्या समस्या मला सांगाव्या लागत नाहीत — त्या मला स्वतःच्या वाटतात.
+
+समाजासाठी काहीतरी करण्याची भावना ही माझ्यासाठी पदाची अपेक्षा नसून, मनातून आलेली जबाबदारी आहे. शिक्षण, आरोग्य, रस्ते आणि मूलभूत नागरी सुविधा यांसारख्या गरजांकडे मी नेहमीच सेवाभावाने, प्रामाणिकपणे आणि सातत्याने पाहण्याचा प्रयत्न केला आहे.
+
+गाजावाजा किंवा मोठ्या शब्दांपेक्षा, शांतपणे काम करून लोकांच्या विश्वासाला पात्र ठरणे हीच माझी खरी ओळख राहिली आहे. तुमच्या पाठिंब्याने आणि मार्गदर्शनाने, वॉर्डच्या भल्यासाठी प्रामाणिक प्रयत्न करत राहण्याची माझी नम्र इच्छा आहे.',
+          
                 'experience-text': '<strong>अनुभव:</strong> व्यवसाय व्यवस्थापन, सामाजिक कार्य, समुदाय विकास',
                 'commitment-text': '<strong>प्रतिबद्धता:</strong> वार्डाचा विकास, पारदर्शकता, सर्वांची सेवा',
                 'vision-title': 'आमचा दृष्टिकोन',
@@ -2132,7 +2390,7 @@
                 'email-form-label': 'ईमेल',
                 'message-label': 'संदेश',
                 'submit-btn': 'पाठवा',
-                'footer-text': '© २०२५ नगरसेवक मोहीम. सर्व हक्क राखीव.',
+                'footer-text': '© २०२६ नगरसेवक मोहीम. सर्व हक्क राखीव.',
                 'footer-subtext': 'भारतीय जनता पार्टी - तुमच्या विश्वासावर आमची प्रतिबद्धता'
             },
             english: {
@@ -2140,8 +2398,12 @@
                 'hero-tagline': 'Ward Development, Citizen Service - Together We Progress!',
                 'about-title': 'About Us',
                 'candidate-name': 'Candidate Name',
-                'bio-text': 'I have lived in this ward for the past 15 years and have been actively involved in social service. I have special interest in education, healthcare, road development, and citizen amenities.',
-                'education-text': '<strong>Education:</strong> Engineering, Corporate Management',
+                'bio-text': 'I am a simple resident of this ward, living here for generations, deeply connected to the people and the community. I have grown up here, shared everyday joys and challenges, and closely understood the needs and concerns of our neighborhood. For me, the issues of this ward are not distant problems — they are personal and close to my heart.
+
+Serving the community has never been about position or recognition, but about a genuine sense of responsibility and care. I have always tried to approach areas such as education, healthcare, road development, and basic civic facilities with honesty, dedication, and a service-oriented mindset.
+
+Rather than making promises or creating noise, I believe in quiet, consistent work and earning people’s trust through action. With your guidance and support, I sincerely wish to continue working for the well-being and progress of our ward.,
+    
                 'experience-text': '<strong>Experience:</strong> Business Management, Social Work, Community Development',
                 'commitment-text': '<strong>Commitment:</strong> Ward Development, Transparency, Service to All',
                 'vision-title': 'Our Vision',
@@ -2193,7 +2455,7 @@
                 'email-form-label': 'Email',
                 'message-label': 'Message',
                 'submit-btn': 'Send',
-                'footer-text': '© 2025 Nagarsevak Campaign. All rights reserved.',
+                'footer-text': '© २०२६ Nagarsevak Campaign. All rights reserved.',
                 'footer-subtext': 'Bharatiya Janata Party - Committed to Your Trust'
             }
         };
@@ -2398,7 +2660,50 @@
                     }, index * 100);
                 });
             }, 100);
+
+            // Gallery lightbox initialization
+            function openLightbox(src, alt, caption) {
+                const lb = document.getElementById('lightbox');
+                const lbImg = document.getElementById('lightbox-img');
+                const lbCaption = document.getElementById('lightbox-caption');
+                lbImg.src = src;
+                lbImg.alt = alt || '';
+                lbCaption.textContent = caption || '';
+                lb.classList.add('active');
+                lb.setAttribute('aria-hidden', 'false');
+            }
+
+            function closeLightbox(event) {
+                // allow calling with an event or with a synthetic object { target: element }
+                const target = event && event.target ? event.target : null;
+                if (!target) return;
+                if (target.id === 'lightbox' || target.classList.contains('lightbox-close')) {
+                    const lb = document.getElementById('lightbox');
+                    const lbImg = document.getElementById('lightbox-img');
+                    lb.classList.remove('active');
+                    lb.setAttribute('aria-hidden', 'true');
+                    lbImg.src = '';
+                }
+            }
+
+            document.querySelectorAll('.gallery-item img').forEach(img => {
+                img.addEventListener('click', (e) => {
+                    const caption = e.target.closest('.gallery-item')?.querySelector('.caption')?.textContent || '';
+                    openLightbox(e.target.getAttribute('src'), e.target.alt, caption);
+                });
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    const lb = document.getElementById('lightbox');
+                    if (lb && lb.classList.contains('active')) {
+                        closeLightbox({ target: lb });
+                    }
+                }
+            });
         });
-    </script>
+-->
+
+    <script src="script.js" defer></script>
 </body>
 </html>
